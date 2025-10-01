@@ -2,26 +2,23 @@
     font-family: "Alegreya Sans";
     src: url("fonts/AlegreyaSans-Regular.ttf")
 }
+@font-face {
+    font-family: "Alegreya Sans";
+    src: url("fonts/AlegreyaSans-Bold.ttf");
+    font-weight: bold;
+}
 
 body {
     background-color: #f1dde2;
     font-family: "Alegreya Sans", sans-serif;
 }
 
-/* ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold; 
 }
-
-li {
-    display: inline;
-} */
-
-/* h1 {
-    color: blue;
-}
-
-p {
-    color: red;
-} */
