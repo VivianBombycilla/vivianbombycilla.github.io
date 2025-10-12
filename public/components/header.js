@@ -15,16 +15,16 @@ headerTemplate.innerHTML = `
     <nav>
         <ul class="nav-menu">
             <li>
-                <a href="/public/">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
-                <a href="/public/blog.html">Blog</a>
+                <a href="/blog.html">Blog</a>
             </li>
             <li>
-                <a href="/public/reading.html">Reading</a>
+                <a href="/reading.html">Reading</a>
             </li>
             <li>
-                <a href="/public/games.html">Games</a>
+                <a href="/games.html">Games</a>
             </li>
         </ul>
     </nav>
