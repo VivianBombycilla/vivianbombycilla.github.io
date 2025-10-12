@@ -6,7 +6,15 @@
     <link href="styles.css" rel="stylesheet" />
     <script src="components/header.js" type="text/javascript" defer></script>
 </head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
 
+    td {
+        text-align: center;
+    }
+    </style>
 <body>
 
     <h1>Reading</h1>
@@ -14,13 +22,78 @@
     <hr>
     <p>Books :)</p>
     <h2>Currently reading</h2>
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>Go Tell It on the Mountain</td>
+            <td>James Baldwin</td>
+            <td>1953</td>
+        </tr>
+    </table>
     <p><b>Go Tell It on the Mountain</b> by James Baldwin (1953)</p>
 
     <h2>Recently Read</h2>
-    <p><b>Nevada</b> by Imogen Binnie (2013)</p>
-    <p><b>Dawn</b> by Octavia E. Butler (1987)</p>
-    <p><b>Welcome to Dorley Hall</b> by Alyson Greaves (2022)</p>
-    <p><b>Martyr!</b> by Kaveh Akbar (2024)</p>
-    <p><b>Giovanni's Room</b> by James Baldwin (1956)</p>
+    <p>Ordered from most recent to least recent.</p>
+    <p>The "Personal rating" column in the table below follows a non-linear rating system, where 👍 means I found it alright, ⭐ means I found it great.</p>
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Personal rating</th>
+        </tr>
+        <tr>
+            <td>Nevada</td>
+            <td>Imogen Binnie</td>
+            <td>2013</td>
+            <td>⭐</td>
+        </tr>
+        <tr>
+            <td>Dawn</td>
+            <td>Octavia E. Butler</td>
+            <td>1987</td>
+            <td>⭐</td>
+        </tr>
+        <tr>
+            <td>Welcome to Dorley Hall</td>
+            <td>Alyson Greaves</td>
+            <td>2022</td>
+            <td>⭐⭐</td>
+        </tr>
+        <tr>
+            <td>Martyr!</td>
+            <td>Kaveh Akbar</td>
+            <td>2024</td>
+            <td>⭐+</td>
+        </tr>
+        <tr>
+            <td>Giovanni's Room</td>
+            <td>James Baldwin</td>
+            <td>1956</td>
+            <td>⭐</td>
+        </tr>
+        <tr>
+            <td>Circe</td>
+            <td>Madeline Miller</td>
+            <td>2018</td>
+            <td>⭐</td>
+        </tr>
+        <tr>
+            <td>The Song of Achilles</td>
+            <td>Madeline Miller</td>
+            <td>2011</td>
+            <td>⭐+</td>
+        </tr>
+        <tr>
+            <td>Orbital</td>
+            <td>Samantha Harvey</td>
+            <td>2023</td>
+            <td>👍−</td>
+        </tr>
+    </table>
 </body>
 <html>

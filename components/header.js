@@ -24,6 +24,9 @@ headerTemplate.innerHTML = `
             <li>
                 <a href="/reading.html">Reading</a>
             </li>
+            <li>
+                <a href="/games.html">Games</a>
+            </li>
         </ul>
     </nav>
     </header>
