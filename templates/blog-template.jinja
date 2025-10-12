@@ -9,9 +9,15 @@
 
 <body>
 
-    <h1>Vivian's website</h1>
+    <h1 id="page-title">Blog</h1>
     <header-component></header-component>
+    
     <hr>
-    <p>Welcome to my website!! :3</p>
+    {% for blog_post in blog_posts %}
+    <div>
+        {{ blog_post }}
+    </div>
+    {% endfor %}
 </body>
-<html>
+
+</html>

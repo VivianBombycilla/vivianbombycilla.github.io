@@ -1,0 +1,4 @@
+<h2>A Website on the Internet</h2>
+<h5>2025-09-18</h5>
+<p>I just got the website up on Github Pages! To be quite honest I want to change my Github account name but I shan't do that until I get a job, since my Github has started appearing in my resume and stuff. But for now, it's live on <a href="https://vivianbombycilla.github.io">vivianbombycilla.github.io</a>.</p>
+<p>Also I managed to bring on a custom font, namely <a href="https://www.huertatipografica.com/en/fonts/alegreya-sans-ht">Alegreya Sans</a> from Huerta Typographia, which I really like.</p>

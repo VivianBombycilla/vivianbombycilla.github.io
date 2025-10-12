@@ -2,30 +2,29 @@ const headerTemplate = document.createElement('template');
 
 headerTemplate.innerHTML = `
     <style>
-    ul {
+    ul.nav-menu {
         list-style: none;
         margin: 0;
         padding: 0;
-    }
-
-    li {
-        display: inline;
+        li {
+            display: inline;
+        }
     }
     </style>
     <header>
     <nav>
-        <ul id="navigation-menu">
+        <ul class="nav-menu">
             <li>
-                <a href="/">Home</a>
+                <a href="/public/">Home</a>
             </li>
             <li>
-                <a href="/blog.html">Blog</a>
+                <a href="/public/blog.html">Blog</a>
             </li>
             <li>
-                <a href="/reading.html">Reading</a>
+                <a href="/public/reading.html">Reading</a>
             </li>
             <li>
-                <a href="/games.html">Games</a>
+                <a href="/public/games.html">Games</a>
             </li>
         </ul>
     </nav>

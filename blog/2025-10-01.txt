@@ -1,0 +1,19 @@
+<h2>Solutions to past and current problems</h2>
+<h5>2025-10-01</h5>
+<p>First off, the past problems:</p>
+<p>It turns out I only added the regular weight font, so some parts of my website (specifically the headings) were showing up as regular weight when they should be <b>bold</b>. That's fixed now, I just had to add the rest of the styles and link it in the stylesheet.</p>
+<p>Another past issue was one I noted in my blog post on 2025-09-07:</p>
+<ul><li>Blog: Text formatting (How do I italicize text? What's the best way to type an en-dash?)</li></ul>
+<p>I've also figured out text formatting, it was indeed a Google away. I think I prefer the markdown style of text formatting, at least typing it out, but I can appreciate the utility, with CSS in mind, of needing a separate element. Also, with UTF-8 encoding, all I need to type an en-dash is to type an en-dash, or type <code>&amp;ndash;</code>. I find TeX's shortcuts for en-dashes and em-dashes more elegant, but once again I can see why this is how it is it HTML.</p>
+<p>And now, my present dilemma, which is summed up by these two items also from my post on 2025-09-07:</p>
+<ul>
+    <li>Blog: Can I store my blog posts somewhere other than this HTML file, and then bring them in using code?</li>
+    <li>Blog: Can I automatically format the blog post (by passing values for, e.g., "Post Title", "Post Date", "Post
+        Body")?</li>
+</ul>
+<p>I've been kind of stuck with what I want to do here. I have several options here:</p>
+<ul>
+    <li>I can try out a static site generator (I've used Gatsby for a bit before, but I'd use Astro instead if I tried again)</li>
+    <li>I can store my blog posts in a database, and then I use code to add it to this page.</li>
+</ul>
+If it's not obvious, I'm not sure how either of these would go. I'm familiar with taking data out of an Excel spreadsheet using Python, and I <i>could</i> use Python as a kind of generator for my HTML. On the other hand, maybe it would be simpler or more instructive if I did something else. There's only one way to find out, and it's to do something, so stay tuned I guess.
