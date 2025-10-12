@@ -1,21 +1,21 @@
 @font-face {
-    font-family: "Alegreya Sans";
-    src: url("fonts/AlegreyaSans-Regular.ttf")
+    font-family: "Alegreya Sans 2";
+    src: url("/fonts/AlegreyaSans-Regular.ttf")
 }
 @font-face {
-    font-family: "Alegreya Sans";
-    src: url("fonts/AlegreyaSans-Bold.ttf");
+    font-family: "Alegreya Sans 2";
+    src: url("/fonts/AlegreyaSans-Bold.ttf");
     font-weight: bold;
 }
 @font-face {
-    font-family: "Alegreya Sans";
-    src: url("fonts/AlegreyaSans-Italic.ttf");
+    font-family: "Alegreya Sans 2";
+    src: url("/fonts/AlegreyaSans-Italic.ttf");
     font-style: italic;
 }
 
 body {
     background-color: #f1dde2;
-    font-family: "Alegreya Sans", sans-serif;
+    font-family: "Alegreya Sans 2", sans-serif;
 }
 
 /* defaults sourced from w3schools */
