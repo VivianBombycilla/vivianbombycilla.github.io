@@ -3,38 +3,41 @@ const headerTemplate = document.createElement('template');
 headerTemplate.innerHTML = `
     <style>
     ul.nav-menu {
+        margin: 0;
         padding: 0;
         height: 2em;
         transform: rotate(-90deg) translateY(100%);
         transform-origin: bottom left;
         li {
+            // list-style-image: url("components/bullet.svg");
             width: max-content;
             margin: 0;
             padding: 0;
+            padding-left: 0.25em;
             transform: rotate(30deg);
             transform-origin: bottom left;
             font-size: 12pt;
         }
         li::marker {
-            font-size: 17pt
+            content: url("components/bullet.svg");
         }
         li:before {
             background-color: #000;
-            width: 2px;
+            width: 2.7px;
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0px;
             bottom: 0px;
-            left: -7.93px;
+            left: -0.2px;
             transform: rotate(-30deg);
             transform-origin: bottom left;
             
         }
         li:first-child:before {
-            top: 13px;
+            top: 11px;
         }
         li:last-child:before {
-            transform: rotate(-30deg) translateY(-13px);
+            transform: rotate(-30deg) translateY(-10px);
         }
     }
     </style>
@@ -54,7 +57,7 @@ headerTemplate.innerHTML = `
                 <a href="/games.html">Games</a>
             </li>
             <li>
-                <a href="/tools.html">Tools</a>
+                <a href="/fun.html">Fun</a>
             </li>
         </ul>
     </nav>

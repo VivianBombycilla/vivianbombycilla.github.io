@@ -8,15 +8,21 @@
 </head>
 
 <body>
-
     <h1 id="page-title">Blog</h1>
     <header-component></header-component>
     
     <hr>
     <div>
+        <h2>Cross-browser considerations</h2>
+        <h5>2025-10-14</h5>
+        <p>So I've worked on the navbar a little more: Specifically, I replaced the bullet point with an SVG, so that the spacing is better. Along the way, I found that the navbar I was working on was showing up differently between Firefox and Chrome. It turned out okay, and pretty easy to pinpoint: The <code>list-style-image</code> attribute was giving slightly different default spacing values, which I did not want to deal with. Thankfully, I was also considering just modifying the <code>content</code> attribute of the <code>list::marker</code> elements, and this gave consistent spacing between browsers (Firefox and Chrome, at least).</p>
+        <p>What else? I've also changed the spacing a little: I added a <code>max-width</code> value so the content stays in a narrow enough column in the middle to remain easy enough to read on different devices. I guess thinking about different browser experiences is a theme here.</p>
+        <p>I'm gonna go read a book now. :)</p>
+    </div>
+    <div>
         <h2>New navbar!</h2>
         <h5>2025-10-13</h5>
-        <p>I've changed how the navbar works, using CSS I figured out over a few hours. It's supposed to look like a subway map :)</p>
+        <p>I've changed how the navbar works, using CSS I figured out over a few hours. It's supposed to look like a subway map :) I found <a href="https://dev.to/peterc/how-to-create-joined-bulletpoint-lists-with-css-bbc-news-style-1eem">this post</a> to be helpful for joining the dots/stations.</p>
         <p>It's very tenuously held together and I really wish I could make it more robust. I do want to come back to it, since I
         don't think the labels are quite centered like I want them to be, and maybe I want the dots to be themselves clickable, and also change in size (or other facet of appearance) depending on what page I'm on.</p>
         <p>Also I added one of my tools to the new Tools section; a simple Mario Kart World timesheet. I might yet rename this section, but I don't know what to call it.</p>
@@ -77,7 +83,6 @@
         fuss about the details of how it all looks on the page so I think I'll just have a blog here also because those are cool
         right? And I've been getting into writing in my diary again, so maybe this can be another creative outlet for me. Probably I'll just forget about it lol.</p>
     </div>
-    
 </body>
 
 </html>

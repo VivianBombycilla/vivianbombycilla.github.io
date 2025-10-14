@@ -21,6 +21,9 @@
 body {
     background-color: #f1dde2;
     font-family: "Alegreya Sans", sans-serif;
+    max-width: 700px;
+    margin: auto;
+    padding: 1em
 }
 
 /* defaults sourced from w3schools */
