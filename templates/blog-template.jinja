@@ -3,9 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="styles.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
     <script src="components/header.js" type="text/javascript" defer></script>
 </head>
+
+<style>
+    .blog-post-date {
+        font-weight: bold;
+        /* outline: solid; */
+        margin: 0;
+    }
+
+    .blog-post-title {
+        font-weight: bold;
+        /* outline: solid; */
+        margin-bottom: 0;
+    }
+</style>
 
 <body>
 
@@ -15,7 +29,9 @@
     <hr>
     {% for blog_post in blog_posts %}
     <div class="blog-post">
-        {{ blog_post }}
+        <h2 class="blog-post-title">{{ blog_post.title }}</h2>
+        <p class="blog-post-date">{{ blog_post["date-created"] }}</p>
+        {{ blog_post.content }}
     </div>
     {% endfor %}
 </body>
