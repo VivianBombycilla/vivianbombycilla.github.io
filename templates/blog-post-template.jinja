@@ -8,20 +8,27 @@
 </head>
 
 <style>
+    .blog-post-date {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .blog-post-title {
+        margin-bottom: 0;
+    }
 </style>
 
 <body>
 
-    <h1 id="page-title">Games Diary</h1>
+    <h1 id="page-title">Blog</h1>
     <header-component></header-component>
     
     <hr>
-    {% for blog_post in blog_posts %}
     <div class="blog-post">
         <h2 class="blog-post-title">{{ blog_post.title }}</h2>
+        <p class="blog-post-date">{{ blog_post["date-created"] }}</p>
         {{ blog_post.content }}
     </div>
-    {% endfor %}
 </body>
 
 </html>
