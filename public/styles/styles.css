@@ -26,6 +26,10 @@ body {
     padding: 1em
 }
 
+img {
+    max-width: 100%;
+}
+
 /* defaults sourced from w3schools */
 
 h1 {
