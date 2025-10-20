@@ -3,20 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="styles/styles.css" rel="stylesheet" />
-    <script src="components/header.js" type="text/javascript" defer></script>
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
 </head>
-
-<style>
-    .blog-post-date {
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .blog-post-title {
-        margin-bottom: 0;
-    }
-</style>
 
 <body>
 
@@ -26,16 +15,33 @@
     <hr>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Efficiencies</h2>
-        <p class="blog-post-date">2025-10-17</p>
+        <a class="blog-post-link" href=blog/15.html>
+            <h2 class="blog-post-title">More content, more problems?</h2>
+            
+            <p class="blog-post-date" >2025-10-20</p>
+        </a>
+        <p>As I add more of my stuff to this blog, and as I write more stuff to this blog, I'm now questioning the wiseness of having all of the content on one page. The games section of the blog in particular is getting relatively larger (it's just 20KB but also loads in some images), so I think I want to silo everything into their own pages.</p>
+<p>I've managed to automatically create a new page for each blog post now, it did take some effort, of course, but I'm decently happy with the result so far. It's absolutely, absolutely a work in progress, for example, there's no way to jump to the next or previous blog posts, and this is definitely a crucial step in the plan I don't want to miss out.</p>
+<p>Also, the navbar looks weird on Safari on my iPhone, so that's gotta get fixed.</p>
+    </div>
+    
+    <div class="blog-post">
+        <a class="blog-post-link" href=blog/12.html>
+            <h2 class="blog-post-title">Efficiencies</h2>
+            
+            <p class="blog-post-date" >2025-10-17</p>
+        </a>
         <p>Just a quick update since I have some thoughts but not much time.</p>
 <p>In the last blog post I said I wanted to implement a better system to detect new blog posts: I've done that now, at least the makings of it. Each blog post is a Markdown file with YAML frontmatter, and this is quite powerful so I'm using that to filter the posts into the various categories.</p>
 <p>Maybe I could have the blog folder as an Obsidian vault, and edit my blog posts (and crucially the YAML) there. Being a big Obsidian user I do enjoy the YAML editing and the tools based on that.</p>
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Markdown blog posts!</h2>
-        <p class="blog-post-date">2025-10-15</p>
+        <a class="blog-post-link" href=blog/11.html>
+            <h2 class="blog-post-title">Markdown blog posts!</h2>
+            
+            <p class="blog-post-date" >2025-10-15</p>
+        </a>
         <p>The blog posts on this website are now in Markdown! This'll make them easier to write, and to format all together. I'm using <a href="https://jinja.palletsprojects.com/en/stable/">Jinja 2</a>, as well as the <a href="https://pypi.org/project/python-frontmatter/">python-frontmatter</a> and <a href="https://pypi.org/project/Markdown/">markdown</a> libraries, to process the data and present it here :)</p>
 <p>The templating system has already made it easier to consistently do the repetitive task of adding CSS classes to certain elements (such as the title and the date to each post), so I've re-styled these (no longer am I using an h5 tag for the date).</p>
 <p>These are some next steps I'm thinking of taking:</p>
@@ -47,24 +53,33 @@
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Cross-browser considerations</h2>
-        <p class="blog-post-date">2025-10-14</p>
+        <a class="blog-post-link" href=blog/9.html>
+            <h2 class="blog-post-title">Cross-browser considerations</h2>
+            
+            <p class="blog-post-date" >2025-10-14</p>
+        </a>
         <p>So I've worked on the navbar a little more: Specifically, I replaced the bullet point with an SVG, so that the spacing is better. Along the way, I found that the navbar I was working on was showing up differently between Firefox and Chrome. It turned out okay, and pretty easy to pinpoint: The <code>list-style-image</code> attribute was giving slightly different default spacing values, which I did not want to deal with. Thankfully, I was also considering just modifying the <code>content</code> attribute of the <code>list::marker</code> elements, and this gave consistent spacing between browsers (Firefox and Chrome, at least).</p>
 <p>What else? I've also changed the spacing a little: I added a <code>max-width</code> value so the content stays in a narrow enough column in the middle to remain easy enough to read on different devices. I guess thinking about different browser experiences is a theme here.</p>
 <p>I'm gonna go read a book now. :)</p>
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">New navbar!</h2>
-        <p class="blog-post-date">2025-10-13</p>
+        <a class="blog-post-link" href=blog/7.html>
+            <h2 class="blog-post-title">New navbar!</h2>
+            
+            <p class="blog-post-date" >2025-10-13</p>
+        </a>
         <p>I've changed how the navbar works, using CSS I figured out over a few hours. It's supposed to look like a subway map :) I found <a href="https://dev.to/peterc/how-to-create-joined-bulletpoint-lists-with-css-bbc-news-style-1eem">this post</a> to be helpful for joining the dots/stations.</p>
 <p>It's very tenuously held together and I really wish I could make it more robust. I do want to come back to it, since I don't think the labels are quite centered like I want them to be, and maybe I want the dots to be themselves clickable, and also change in size (or other facet of appearance) depending on what page I'm on.</p>
 <p>Also I added one of my tools to the new Tools section; a simple Mario Kart World timesheet. I might yet rename this section, but I don't know what to call it.</p>
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Learning is fun :3</h2>
-        <p class="blog-post-date">2025-10-12</p>
+        <a class="blog-post-link" href=blog/6.html>
+            <h2 class="blog-post-title">Learning is fun :3</h2>
+            
+            <p class="blog-post-date" >2025-10-12</p>
+        </a>
         <p>I have Covid, and it's Sunday, so I have had the urge to figure some stuff out about the site. What I've done is
 reorganized my files around a little bit: I'm now serving from the <code>public</code> folder rather than the root folder; this has necessitated me to figure out how to "deploy" using GitHub Actions. My partner helped a whole lot with that.</p>
 <p>Another thing my partner helped me a whole lot with was figuring out what I've been wanting, that is, templating. I'm gonna try using <a href="https://jinja.palletsprojects.com/en/stable/">Jinja2</a> in Python.</p>
@@ -72,8 +87,11 @@ reorganized my files around a little bit: I'm now serving from the <code>public<
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Solutions to past and current problems</h2>
-        <p class="blog-post-date">2025-10-01</p>
+        <a class="blog-post-link" href=blog/4.html>
+            <h2 class="blog-post-title">Solutions to past and current problems</h2>
+            
+            <p class="blog-post-date" >2025-10-01</p>
+        </a>
         <p>First off, the past problems:</p>
 <p>It turns out I only added the regular weight font, so some parts of my website (specifically the headings) were showing up as regular weight when they should be <strong>bold</strong>. That's fixed now, I just had to add the rest of the styles and link it in the stylesheet.</p>
 <p>Another past issue was one I noted in my blog post on 2025-09-07:</p>
@@ -94,15 +112,21 @@ reorganized my files around a little bit: I'm now serving from the <code>public<
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">A Website on the Internet</h2>
-        <p class="blog-post-date">2025-09-18</p>
+        <a class="blog-post-link" href=blog/3.html>
+            <h2 class="blog-post-title">A Website on the Internet</h2>
+            
+            <p class="blog-post-date" >2025-09-18</p>
+        </a>
         <p>I just got the website up on Github Pages! To be quite honest I want to change my Github account name but I shan't do that until I get a job, since my Github has started appearing in my resume and stuff. But for now, it's live on <a href="https://vivianbombycilla.github.io">vivianbombycilla.github.io</a>.</p>
 <p>Also I managed to bring on a custom font, namely <a href="https://www.huertatipografica.com/en/fonts/alegreya-sans-ht">Alegreya Sans</a> from Huerta Typographia, which I really like.</p>
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">What this is, and what it'll be next</h2>
-        <p class="blog-post-date">2025-09-07</p>
+        <a class="blog-post-link" href=blog/2.html>
+            <h2 class="blog-post-title">What this is, and what it'll be next</h2>
+            
+            <p class="blog-post-date" >2025-09-07</p>
+        </a>
         <p>So like, this website is mostly me throwing myself at the task of making a website and hoping it'll work, and for it has, so far. I just started an HTML file in VSCode and realized that that's all one really needs, at the end of the day, although of course I'm learning first-hand why, for example, people use stylesheets and JavaScript. one of the first things I noticed, actually, while making this collection of HTML files was that I wanted to know how to reuse my HTML code, so that there'd be one thing to edit rather than multiple. I've ended up making a custom element using "Web Components" which I don't fully understand but which at least is something I can try and grasp eventually.</p>
 <p>There's a lot of things I want to do and learn with this site, some of them are probably just a Google away but I thought it'd be good to write it down here (and not just my notebook):</p>
 <ul>
@@ -116,8 +140,11 @@ reorganized my files around a little bit: I'm now serving from the <code>public<
     </div>
     
     <div class="blog-post">
-        <h2 class="blog-post-title">Under construction</h2>
-        <p class="blog-post-date">2025-09-06</p>
+        <a class="blog-post-link" href=blog/1.html>
+            <h2 class="blog-post-title">Under construction</h2>
+            
+            <p class="blog-post-date" >2025-09-06</p>
+        </a>
         <p>Okay I'm gonna try and make a website again. I've got a bunch of ideas for what I want to put here but I know I'm gonna fuss about the details of how it all looks on the page so I think I'll just have a blog here also because those are cool right? And I've been getting into writing in my diary again, so maybe this can be another creative outlet for me. Probably I'll just forget about it lol.</p>
     </div>
     

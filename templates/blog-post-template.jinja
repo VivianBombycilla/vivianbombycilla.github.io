@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="styles/styles.css" rel="stylesheet" />
-    <script src="components/header.js" type="text/javascript" defer></script>
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
 </head>
 
 <style>
@@ -20,12 +20,15 @@
 
 <body>
 
-    <h1 id="page-title">Blog</h1>
+    <h1 id="page-title">Blog Post</h1>
     <header-component></header-component>
     
     <hr>
     <div class="blog-post">
         <h2 class="blog-post-title">{{ blog_post.title }}</h2>
+        {% if blog_post["subtitle"] is string %}
+        <p class="blog-post-subtitle" >{{ blog_post["subtitle"] }}</p>
+        {% endif %}
         <p class="blog-post-date">{{ blog_post["date-created"] }}</p>
         {{ blog_post.content }}
     </div>

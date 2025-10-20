@@ -29,6 +29,25 @@ body {
 img {
     max-width: 100%;
 }
+.blog-post-subtitle {
+    font-weight: bold;
+    font-size: 1.17em;
+    margin: 0;
+}
+
+.blog-post-date {
+    font-weight: bold;
+    margin: 0;
+}
+
+.blog-post-title {
+    margin-bottom: 0;
+}
+
+.blog-post-link {
+    margin-bottom: 0;
+    color: inherit
+}
 
 /* defaults sourced from w3schools */
 

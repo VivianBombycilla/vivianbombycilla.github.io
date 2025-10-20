@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
+</head>
+
+<style>
+    .blog-post-date {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .blog-post-title {
+        margin-bottom: 0;
+    }
+</style>
+
+<body>
+
+    <h1 id="page-title">Blog</h1>
+    <header-component></header-component>
+    
+    <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Cross-browser considerations</h2>
+        
+        <p class="blog-post-date">2025-10-14</p>
+        <p>So I've worked on the navbar a little more: Specifically, I replaced the bullet point with an SVG, so that the spacing is better. Along the way, I found that the navbar I was working on was showing up differently between Firefox and Chrome. It turned out okay, and pretty easy to pinpoint: The <code>list-style-image</code> attribute was giving slightly different default spacing values, which I did not want to deal with. Thankfully, I was also considering just modifying the <code>content</code> attribute of the <code>list::marker</code> elements, and this gave consistent spacing between browsers (Firefox and Chrome, at least).</p>
+<p>What else? I've also changed the spacing a little: I added a <code>max-width</code> value so the content stays in a narrow enough column in the middle to remain easy enough to read on different devices. I guess thinking about different browser experiences is a theme here.</p>
+<p>I'm gonna go read a book now. :)</p>
+    </div>
+</body>
+
+</html>

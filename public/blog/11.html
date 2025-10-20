@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
+</head>
+
+<style>
+    .blog-post-date {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .blog-post-title {
+        margin-bottom: 0;
+    }
+</style>
+
+<body>
+
+    <h1 id="page-title">Blog</h1>
+    <header-component></header-component>
+    
+    <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Markdown blog posts!</h2>
+        
+        <p class="blog-post-date">2025-10-15</p>
+        <p>The blog posts on this website are now in Markdown! This'll make them easier to write, and to format all together. I'm using <a href="https://jinja.palletsprojects.com/en/stable/">Jinja 2</a>, as well as the <a href="https://pypi.org/project/python-frontmatter/">python-frontmatter</a> and <a href="https://pypi.org/project/Markdown/">markdown</a> libraries, to process the data and present it here :)</p>
+<p>The templating system has already made it easier to consistently do the repetitive task of adding CSS classes to certain elements (such as the title and the date to each post), so I've re-styled these (no longer am I using an h5 tag for the date).</p>
+<p>These are some next steps I'm thinking of taking:</p>
+<ul>
+<li>Separate page for each blog post, with forward and backward links</li>
+<li>Bring my Games Diary posts to Markdown as well</li>
+<li>Implement a better system to detect new blog posts (right now I'm manually entering the paths of each post)</li>
+</ul>
+    </div>
+</body>
+
+</html>

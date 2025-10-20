@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
+</head>
+
+<style>
+    .blog-post-date {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .blog-post-title {
+        margin-bottom: 0;
+    }
+</style>
+
+<body>
+
+    <h1 id="page-title">Blog</h1>
+    <header-component></header-component>
+    
+    <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Learning is fun :3</h2>
+        
+        <p class="blog-post-date">2025-10-12</p>
+        <p>I have Covid, and it's Sunday, so I have had the urge to figure some stuff out about the site. What I've done is
+reorganized my files around a little bit: I'm now serving from the <code>public</code> folder rather than the root folder; this has necessitated me to figure out how to "deploy" using GitHub Actions. My partner helped a whole lot with that.</p>
+<p>Another thing my partner helped me a whole lot with was figuring out what I've been wanting, that is, templating. I'm gonna try using <a href="https://jinja.palletsprojects.com/en/stable/">Jinja2</a> in Python.</p>
+<p>Other than that, I've added a table to the Reading section and added a new section, "Games", which will have some game-specific diaries. Maybe I'll integrate those posts as general blog posts and have a way to sort through them in an organized way. That's looking a lot more approachable today than it did yesterday.</p>
+    </div>
+</body>
+
+</html>

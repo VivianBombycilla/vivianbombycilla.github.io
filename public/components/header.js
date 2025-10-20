@@ -19,7 +19,7 @@ headerTemplate.innerHTML = `
             font-size: 12pt;
         }
         li::marker {
-            content: url("components/bullet.svg");
+            content: url("/components/bullet.svg");
         }
         li:before {
             background-color: #000;
@@ -39,6 +39,9 @@ headerTemplate.innerHTML = `
         li:last-child:before {
             transform: rotate(-30deg) translateY(-10px);
         }
+        a {
+            color: blue;
+        }
     }
     </style>
     <header>
@@ -48,7 +51,7 @@ headerTemplate.innerHTML = `
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/blog.html">Blog</a>
+                <a href="/blog.html">Website</a>
             </li>
             <li>
                 <a href="/reading.html">Reading</a>
