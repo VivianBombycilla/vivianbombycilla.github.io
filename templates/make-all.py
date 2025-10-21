@@ -12,7 +12,7 @@ def parse_blog_posts(paths):
 
     for path in paths:
         with open("blog/"+path) as f:
-            post = frontmatter.loads(f.read())
+            post = frontmatter.loads(f.read(), **{"work-in-progress":False})
             post_dict = post.to_dict()
             sr = pd.Series(post_dict)
             df = pd.concat([df,sr],axis=1,ignore_index=True)
@@ -28,14 +28,14 @@ def get_link(post_id):
     '''Gets link to post from post id'''
     return "blog/"+str(post_id)+".html"
 
-def filter_posts(posts,category):
-    filtered_posts = [post for post in posts if post["category"] == category]
+def filter_posts(posts,filter_by,category):
+    filtered_posts = [post for post in posts if post[filter_by] == category]
     return filtered_posts
 
 df = parse_blog_posts(paths)
 posts = list(map(lambda x: x[1],df.iterrows()))
-print(filter_posts(posts,"games"))
-print(filter_posts(posts,"website"))
+print(posts)
+posts = filter_posts(posts,"work-in-progress",False)
 
 
 env = j2.Environment(
@@ -46,12 +46,12 @@ env = j2.Environment(
 # write to blog.html
 template = env.get_template("blog-template.jinja")
 with open("public/blog.html","w") as f:
-    f.write(template.render(blog_posts = filter_posts(posts,"website")))
+    f.write(template.render(blog_posts = filter_posts(posts,"category","website")))
 
 # write to games.html
 template = env.get_template("games-template.jinja")
 with open("public/games.html","w") as f:
-    f.write(template.render(blog_posts = filter_posts(posts,"games")))
+    f.write(template.render(blog_posts = filter_posts(posts,"category","games")))
 
 # write blog post pages
 template = env.get_template("blog-post-template.jinja")
