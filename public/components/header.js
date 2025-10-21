@@ -59,9 +59,6 @@ headerTemplate.innerHTML = `
             <li>
                 <a href="/games.html">Games</a>
             </li>
-            <li>
-                <a href="/fun.html">Fun</a>
-            </li>
         </ul>
     </nav>
     </header>
