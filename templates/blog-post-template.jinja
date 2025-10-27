@@ -7,22 +7,32 @@
     <script src="/components/header.js" type="text/javascript" defer></script>
 </head>
 
-<style>
-    .blog-post-date {
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .blog-post-title {
-        margin-bottom: 0;
-    }
-</style>
-
 <body>
 
     <h1 id="page-title">Blog Post</h1>
     <header-component></header-component>
     
+    <hr>
+    
+    <div class="blog-post-nav">
+        
+        <div class="prev-post">
+            {% if prev_post is not none %}
+            <p style="font-weight:bold">Previous</p>
+            <a href={{ prev_post.link }}>Post #{{ prev_post["post-id"] }}</a>
+            {% endif %}
+        </div>
+        <div class="this-post">
+            <p style="font-weight:bold">Current</p>
+            <p>Post #{{ blog_post["post-id"] }}</a>
+        </div>
+        <div class="next-post">
+            {% if next_post is not none %}
+            <p style="font-weight:bold">Next</p>
+            <a href={{ next_post.link }}>Post #{{ next_post["post-id"] }}</a>
+            {% endif %}
+        </div>
+    </div>
     <hr>
     <div class="blog-post">
         <h2 class="blog-post-title">{{ blog_post.title }}</h2>

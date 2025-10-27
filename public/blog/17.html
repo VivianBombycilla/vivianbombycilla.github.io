@@ -7,22 +7,32 @@
     <script src="/components/header.js" type="text/javascript" defer></script>
 </head>
 
-<style>
-    .blog-post-date {
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .blog-post-title {
-        margin-bottom: 0;
-    }
-</style>
-
 <body>
 
     <h1 id="page-title">Blog Post</h1>
     <header-component></header-component>
     
+    <hr>
+    
+    <div class="blog-post-nav">
+        
+        <div class="prev-post">
+            
+            <p style="font-weight:bold">Previous</p>
+            <a href=/blog/16.html>Post #16</a>
+            
+        </div>
+        <div class="this-post">
+            <p style="font-weight:bold">Current</p>
+            <p>Post #17</a>
+        </div>
+        <div class="next-post">
+            
+            <p style="font-weight:bold">Next</p>
+            <a href=/blog/18.html>Post #18</a>
+            
+        </div>
+    </div>
     <hr>
     <div class="blog-post">
         <h2 class="blog-post-title">Pokemon Sleep</h2>

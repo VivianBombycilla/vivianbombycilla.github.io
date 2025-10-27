@@ -29,6 +29,7 @@ body {
 img {
     max-width: 100%;
 }
+
 .blog-post-subtitle {
     font-weight: bold;
     font-size: 1.17em;
@@ -47,6 +48,29 @@ img {
 .blog-post-link {
     margin-bottom: 0;
     color: inherit
+}
+
+/* Container for previous post and next post buttons */
+.blog-post-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .prev-post, .next-post, .this-post {
+        display: inline-block;
+        p {
+            margin: 0
+        }
+    }
+    /* Absolute center */
+    .this-post { 
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+    .next-post {
+        text-align: right;
+    }
 }
 
 /* defaults sourced from w3schools */
