@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+    <script src="/components/header.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+
+    <h1 id="page-title">Blog Post</h1>
+    <header-component></header-component>
+    
+    <hr>
+    
+    <div class="blog-post-nav">
+        
+        <div class="prev-post">
+            
+            <p style="font-weight:bold">Previous</p>
+            <a href=/blog/19.html>Post #19</a>
+            
+        </div>
+        <div class="this-post">
+            <p style="font-weight:bold">Current</p>
+            <p>Post #20</a>
+        </div>
+        <div class="next-post">
+            
+        </div>
+    </div>
+    <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Major blog revamp</h2>
+        
+        <p class="blog-post-date">2025-10-27</p>
+        <h3>Thing 1: Blog post navigation</h3>
+<p>It's been a long week but I've come back around to add "previous" and "next" buttons! I think it looks pretty cool, and I think it's gonna be a next step to add similar navigation buttons for posts within a category, and posts within a series. I also want a way to filter blog posts by category on the main blog posts page: This could certainly also be achieved with a similar "subway map" aesthetic as the current navbar. </p>
+<p>Speaking of the current navbar, I want to change it up a little: I want the current page to be highlighted in some way, possibly by bolding the corresponding text on the navbar. This could possibly be achieved using the JavaScript which is currently being used for the navbar (Web Components specifically), but possibly it will be easier to do it using Jinja and Python.</p>
+<h3>Thing 2: Farewell, /games</h3>
+<p>I've also taken the liberty of deleting the /games files and page... It started as a place I could put some diaries about my game, but it has become essentially another, parallel blog, so I've reintegrated it to /blog. In related news I've added stuff to the Home Page for the first time in a sec. Hopefully that makes the site easier to understand when first landing.</p>
+<h3>Thing 3: YAML frontmatter thoughts</h3>
+<p>I've been using YAML frontmatter quite a bit while building these pages and I have to say it's very cool. I'm using it to feed data such as Title, Date, ID, and Subtitle for each of my blog posts, and also whether a given blog post should be published or not. The way I've got it working right now is on an "opt out" basis where I have to declare if the blog post is not to be published: I felt that this would reduce the amount of redundant data between posts, but alas this is prone to me forgetting to tick the opt-out when I create the post. So, I think I'll switch it to an opt-in model, where a file property as declared in the YAML frontmatter will indicate positively whether a post should be displayed. It's not that much more space anyways, right?</p>
+    </div>
+</body>
+
+</html>

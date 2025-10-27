@@ -12,7 +12,7 @@ def parse_blog_posts(paths):
     # For each path, extract the frontmatter and content and combine them into a Series, which is then concatenated into the DataFrame df.
     for path in paths:
         with open("blog/"+path) as f:
-            post = frontmatter.loads(f.read(), **{"work-in-progress":False})
+            post = frontmatter.loads(f.read())
             post_dict = post.to_dict()
             sr = pd.Series(post_dict)
             df = pd.concat([df,sr],axis=1,ignore_index=True)
@@ -34,7 +34,7 @@ def filter_posts(posts,filter_by,category):
 
 df = parse_blog_posts(paths)
 posts = list(map(lambda x: x[1],df.iterrows()))
-posts = filter_posts(posts,"work-in-progress",False)
+posts = filter_posts(posts,"published",True)
 
 # Load Jinja environment
 env = j2.Environment(
@@ -47,10 +47,10 @@ template = env.get_template("blog-template.jinja")
 with open("public/blog.html","w") as f:
     f.write(template.render(blog_posts = posts))
 
-# # write to games.html
-# template = env.get_template("games-template.jinja")
-# with open("public/games.html","w") as f:
-#     f.write(template.render(blog_posts = filter_posts(posts,"category","games")))
+# write to index.html
+template = env.get_template("index-template.jinja")
+with open("public/index.html","w") as f:
+    f.write(template.render(latest_post = posts[0]))
 
 # write blog post pages
 template = env.get_template("blog-post-template.jinja")
