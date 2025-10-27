@@ -51,13 +51,10 @@ headerTemplate.innerHTML = `
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/blog.html">Website</a>
+                <a href="/blog.html">Blog</a>
             </li>
             <li>
                 <a href="/reading.html">Reading</a>
-            </li>
-            <li>
-                <a href="/games.html">Games</a>
             </li>
         </ul>
     </nav>

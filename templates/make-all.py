@@ -45,12 +45,12 @@ env = j2.Environment(
 # write to blog.html
 template = env.get_template("blog-template.jinja")
 with open("public/blog.html","w") as f:
-    f.write(template.render(blog_posts = filter_posts(posts,"category","website")))
+    f.write(template.render(blog_posts = posts))
 
-# write to games.html
-template = env.get_template("games-template.jinja")
-with open("public/games.html","w") as f:
-    f.write(template.render(blog_posts = filter_posts(posts,"category","games")))
+# # write to games.html
+# template = env.get_template("games-template.jinja")
+# with open("public/games.html","w") as f:
+#     f.write(template.render(blog_posts = filter_posts(posts,"category","games")))
 
 # write blog post pages
 template = env.get_template("blog-post-template.jinja")

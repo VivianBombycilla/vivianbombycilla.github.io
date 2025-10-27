@@ -15,6 +15,7 @@
     <hr>
     {% for blog_post in blog_posts %}
     <div class="blog-post">
+        <p class="blog-post-number">Post #{{blog_post["post-id"]}}</p>
         <a class="blog-post-link" href={{blog_post["link"]}}>
             <h2 class="blog-post-title">{{ blog_post["title"] }}</h2>
             {% if blog_post["subtitle"] is string %}
@@ -22,7 +23,6 @@
             {% endif %}
             <p class="blog-post-date" >{{ blog_post["date-created"] }}</p>
         </a>
-        {{ blog_post.content }}
     </div>
     {% endfor %}
 </body>

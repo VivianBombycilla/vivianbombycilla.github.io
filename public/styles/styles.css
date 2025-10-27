@@ -42,12 +42,16 @@ img {
 }
 
 .blog-post-title {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .blog-post-link {
     margin-bottom: 0;
-    color: inherit
+    color: inherit;
+}
+
+.blog-post-number {
+    margin-bottom: 0;
 }
 
 /* Container for previous post and next post buttons */
@@ -58,7 +62,10 @@ img {
     .prev-post, .next-post, .this-post {
         display: inline-block;
         p {
-            margin: 0
+            margin: 0;
+        }
+        a {
+            color: blue;
         }
     }
     /* Absolute center */
