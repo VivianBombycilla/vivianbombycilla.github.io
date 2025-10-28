@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <link href="/styles/styles.css" rel="stylesheet" />
-    <script src="/components/header.js" type="text/javascript" defer></script>
 </head>
 
 <body>
-
     <h1 id="page-title">Blog</h1>
-    <header-component></header-component>
-    
+    {{ navbar }}
     <hr>
     {% for blog_post in blog_posts %}
     <div class="blog-post">

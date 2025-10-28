@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="styles/styles.css" rel="stylesheet" />
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+
+    td {
+        text-align: center;
+    }
+    </style>
+<body>
+    <h1>Reading</h1>
+    {{ navbar }}
+    <hr>
+    <p>Books :)</p>
+    <h2>Currently reading</h2>
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        <tr>
+            <td>Secrets of Dorley Hall</td>
+            <td>Alyson Greaves</td>
+            <td>2023</td>
+        </tr>
+    </table>
+
+    <h2>Recently Read</h2>
+    <p>Ordered from most recent to least recent.</p>
+    <p>The "Personal rating" column in the table below follows a non-linear rating system, where 👍 means I found it alright, ⭐ means I found it great.</p>
+    <table>
+        <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Personal rating</th>
+        </tr>
+        {% for book in read_books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.year }}</td>
+            <td>{{ book["personal-rating"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+<html>
