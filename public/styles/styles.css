@@ -128,6 +128,15 @@ ul.nav-menu {
     }
 }
 
+hr {
+    display: block;
+    height: 0.5px;
+    border: none;
+    border-top: 1px solid black;
+    margin: 0.7em 0;
+    padding: 0; 
+}
+
 /* defaults sourced from w3schools */
 
 h1 {
