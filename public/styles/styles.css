@@ -137,6 +137,16 @@ hr {
     padding: 0; 
 }
 
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+td {
+    text-align: center;
+}
+
 /* defaults sourced from w3schools */
 
 h1 {
