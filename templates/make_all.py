@@ -13,19 +13,24 @@ nav_menu = [
     {"link": "/reading.html", "title": "Reading"},
 ]
 
-def parse_blog_posts(paths,directory):
-    '''Parses a list of paths into a DataFrame'''
+def parse_blog_posts(paths, directory):
+    '''Parses a list of paths into a DataFrame.'''
     df = pd.DataFrame()
     # For each path, extract the frontmatter and content and combine them into a Series, which is then concatenated into the DataFrame df.
     for path in paths:
-        print(path)
-        with open(directory+path,encoding="utf-8") as f:
+        with open(directory + path, encoding="utf-8") as f:
+            # Extract frontmatter and content into a frontmatter.Post object
             post = frontmatter.loads(f.read())
+            # Convert Post to dictionary for handling using pandas
             post_dict = post.to_dict()
+            # Initializes pd.Series object with the data from the dictionary
             sr = pd.Series(post_dict)
+            # Adds sr to df, as a new column
             df = pd.concat([df,sr],axis=1,ignore_index=True)
-    df = df.transpose() # Transpose the DataFrame (important before any further actions)
-    df["content"] = df["content"].apply(markdown.markdown) # Parse the markdown
+    # We want each post to be a row, rather than a column, therefore we transpose the DataFrame.
+    df = df.transpose()
+    # Parse markdown in the content of each post.
+    df["content"] = df["content"].apply(markdown.markdown)
     return df
 
 def get_link(post_id):
@@ -40,6 +45,7 @@ def filter_posts(posts,filter_by,category):
 def parse_authors(author_list):
     return ", ".join(author_list)
 
+# Parse all blog posts into a DataFrame.
 df = parse_blog_posts(paths,"blog/")
 df.index = df["post-id"] # Declare new index
 df["link"] = df["post-id"].apply(get_link) # Create links
@@ -63,26 +69,26 @@ env = j2.Environment(
 )
 
 # get navbar
-template = env.get_template("navbar-template.jinja")
+template = env.get_template("navbar.jinja")
 navbar = template.render(nav_menu = nav_menu)
 
 # write to blog.html
-template = env.get_template("blog-template.jinja")
+template = env.get_template("blog.jinja")
 with open("public/blog.html","w") as f:
     f.write(template.render(blog_posts = posts,navbar=navbar))
 
 # write to index.html
-template = env.get_template("index-template.jinja")
+template = env.get_template("index.jinja")
 with open("public/index.html","w") as f:
     f.write(template.render(latest_post = posts[0],navbar=navbar))
 
 # write to reading.html
-template = env.get_template("reading-template.jinja")
+template = env.get_template("reading.jinja")
 with open("public/reading.html","w",encoding="utf-8") as f:
     f.write(template.render(read_books = read_books,navbar=navbar))
 
 # write blog post pages
-template = env.get_template("blog-post-template.jinja")
+template = env.get_template("blog-post.jinja")
 for i in range(len(posts)):
     post = posts[i]
     prev_post = None
@@ -97,3 +103,5 @@ for i in range(len(posts)):
             prev_post = prev_post,
             next_post = next_post,navbar=navbar
         ))
+
+print("test")
