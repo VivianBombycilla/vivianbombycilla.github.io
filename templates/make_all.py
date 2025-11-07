@@ -35,7 +35,7 @@ def parse_blog_posts(paths, directory):
 
 def get_link(post_id):
     '''Gets link to post from post id'''
-    return "/blog/"+str(post_id)+".html"
+    return "/blog/posts/"+str(post_id)+".html"
 
 def filter_posts(posts,filter_by,category):
     '''Filter a list of posts'''
