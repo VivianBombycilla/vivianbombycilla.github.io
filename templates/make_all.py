@@ -1,5 +1,6 @@
 import os
-import frontmatter, markdown
+import frontmatter
+import markdown
 import jinja2 as j2
 import pandas as pd
 
@@ -30,7 +31,7 @@ def parse_blog_posts(paths, directory):
     # We want each post to be a row, rather than a column, therefore we transpose the DataFrame.
     df = df.transpose()
     # Parse markdown in the content of each post.
-    df["content"] = df["content"].apply(markdown.markdown)
+    df["content"] = df["content"].apply(lambda text: markdown.markdown(text,extensions = ["tables"]))
     return df
 
 def get_link(post_id):
