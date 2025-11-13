@@ -17,11 +17,13 @@
             <th>Author</th>
             <th>Year</th>
         </tr>
+        {% for book in books_reading %}
         <tr>
-            <td>Secrets of Dorley Hall</td>
-            <td>Alyson Greaves</td>
-            <td>2023</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.year }}</td>
         </tr>
+        {% endfor %}
     </table>
 
     <h2>Recently Read</h2>
@@ -34,7 +36,7 @@
             <th>Year</th>
             <th>Personal rating</th>
         </tr>
-        {% for book in read_books %}
+        {% for book in books_read %}
         <tr>
             <td>{{ book.title }}</td>
             <td>{{ book.author }}</td>

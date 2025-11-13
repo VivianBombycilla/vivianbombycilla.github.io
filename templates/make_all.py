@@ -61,7 +61,8 @@ books_df.index = books_df["book-id"] # Declare new index
 books_df.sort_index(axis=0,inplace=True,ascending=False) # Sort the DataFrame
 books_df["author"] = books_df["author"].apply(parse_authors)
 books = list(map(lambda x: x[1],books_df.iterrows()))
-read_books = filter_posts(books,"status","read")
+books_read = filter_posts(books,"status","read")
+books_reading = filter_posts(books,"status","reading")
 
 # Load Jinja environment
 env = j2.Environment(
@@ -86,7 +87,11 @@ with open("public/index.html","w",encoding="utf-8") as f:
 # write to reading.html
 template = env.get_template("reading.jinja")
 with open("public/reading.html","w",encoding="utf-8") as f:
-    f.write(template.render(read_books = read_books,navbar=navbar))
+    f.write(template.render(
+        books_read = books_read,
+        books_reading = books_reading,
+        navbar = navbar
+    ))
 
 # write blog post pages
 template = env.get_template("blog-post.jinja")
@@ -102,7 +107,8 @@ for i in range(len(posts)):
         f.write(template.render(
             blog_post = post,
             prev_post = prev_post,
-            next_post = next_post,navbar=navbar
+            next_post = next_post,
+            navbar = navbar
         ))
 
 print("test")
