@@ -9,9 +9,9 @@ paths = list(filter(lambda path: path.endswith(".md"),os.listdir("blog")))
 book_paths = list(filter(lambda path: path.endswith(".md"),os.listdir("reading")))
 
 nav_menu = [
-    {"link": "/", "title": "Home"},
-    {"link": "/blog.html", "title": "Blog"},
-    {"link": "/reading.html", "title": "Reading"},
+    {"link": "/", "title": "Home", "index": "index"},
+    {"link": "/blog.html", "title": "Blog", "index": "blog"},
+    {"link": "/reading.html", "title": "Reading", "index": "reading"},
 ]
 
 def parse_blog_posts(paths, directory):
@@ -72,17 +72,19 @@ env = j2.Environment(
 
 # get navbar
 template = env.get_template("navbar.jinja")
-navbar = template.render(nav_menu = nav_menu)
+navbar_index = template.render(nav_menu = nav_menu,current_page = "index")
+navbar_blog = template.render(nav_menu = nav_menu,current_page = "blog")
+navbar_reading = template.render(nav_menu = nav_menu,current_page = "reading")
 
 # write to blog.html
 template = env.get_template("blog.jinja")
 with open("public/blog.html","w",encoding="utf-8") as f:
-    f.write(template.render(blog_posts = posts,navbar=navbar))
+    f.write(template.render(blog_posts = posts,navbar=navbar_blog))
 
 # write to index.html
 template = env.get_template("index.jinja")
 with open("public/index.html","w",encoding="utf-8") as f:
-    f.write(template.render(latest_post = posts[0],navbar=navbar))
+    f.write(template.render(latest_post = posts[0],navbar=navbar_index))
 
 # write to reading.html
 template = env.get_template("reading.jinja")
@@ -90,7 +92,7 @@ with open("public/reading.html","w",encoding="utf-8") as f:
     f.write(template.render(
         books_read = books_read,
         books_reading = books_reading,
-        navbar = navbar
+        navbar = navbar_reading
     ))
 
 # write blog post pages
@@ -108,7 +110,7 @@ for i in range(len(posts)):
             blog_post = post,
             prev_post = prev_post,
             next_post = next_post,
-            navbar = navbar
+            navbar = navbar_blog
         ))
 
 print("test")

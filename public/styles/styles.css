@@ -83,7 +83,8 @@ img {
 ul.nav-menu {
     margin: 0;
     padding: 0;
-    height: 2em;
+    width: fit-content;
+    aspect-ratio: 1 / 1;
     transform: rotate(-90deg) translateY(100%);
     transform-origin: bottom left;
 
@@ -98,8 +99,15 @@ ul.nav-menu {
         font-size: 12pt;
     }
 
+    li.current-page {
+        font-weight: bold;
+    }
+    
     li::marker {
         content: url("/components/bullet.svg");
+    }
+    li.current-page::marker {
+        content: url("/components/bullet2.svg");
     }
 
     li:before {
@@ -107,20 +115,16 @@ ul.nav-menu {
         width: 2.7px;
         content: '';
         position: fixed;
-        top: 0px;
-        bottom: 0px;
-        left: -0.2px;
+        top: 11px;
+        bottom: -6px;
+        left: 3.1px;
         transform: rotate(-30deg);
         transform-origin: bottom left;
 
     }
 
-    li:first-child:before {
-        top: 11px;
-    }
-
     li:last-child:before {
-        transform: rotate(-30deg) translateY(-10px);
+        opacity: 0;
     }
 
     a {
@@ -133,7 +137,7 @@ hr {
     height: 0.5px;
     border: none;
     border-top: 1px solid black;
-    margin: 0.7em 0;
+    margin: 0.5em 0;
     padding: 0; 
 }
 
@@ -153,10 +157,10 @@ h1 {
     display: block;
     font-size: 2em;
     margin-top: 0.67em;
-    margin-bottom: 0.67em;
+    margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    font-weight: bold; 
+    font-weight: bold;
 }
 h2 {
     display: block;
