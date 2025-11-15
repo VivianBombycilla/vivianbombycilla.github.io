@@ -8,8 +8,10 @@
 
 <body>
     <h1 id="page-title">Blog</h1>
-    {{ navbar }}
-    <hr>
+    {% for navbar in navbars %}
+        {{ navbar }}
+        <hr>
+    {% endfor %}
     {% for blog_post in blog_posts %}
     <div class="blog-post">
         <p class="blog-post-number">Post #{{ blog_post["post-id"] }} | {{ blog_post["category"] }}</p>

@@ -1,11 +1,7 @@
 <nav>
     <ul class="nav-menu">
         {% for item in nav_menu %}
-        <li 
-            {% if item.index == current_page %}
-                class="current-page"
-            {% endif %}
-        >
+        <li {% if item.index == current_page %}class="current-page"{% endif %} >
             <a href={{ item.link }}>
                 {{ item.title }}
             </a>

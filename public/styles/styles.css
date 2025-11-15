@@ -81,13 +81,19 @@ img {
 }
 
 ul.nav-menu {
-    margin: 0;
-    padding: 0;
+    margin: -1em;
+    margin-top: -100%;
+    padding: 1em;
+    padding-bottom: 100%;
+    /* margin: 0;
+    padding: 0; */
     width: fit-content;
+    /* height: 4em; */
+    overflow: hidden;
     aspect-ratio: 1 / 1;
     transform: rotate(-90deg) translateY(100%);
     transform-origin: bottom left;
-
+    /* outline: solid; */
     li {
         /* list-style-image: url("components/bullet.svg"); */
         width: max-content;

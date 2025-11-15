@@ -28,8 +28,29 @@ template = env.get_template("blog.jinja")
 with open("public/blog.html","w",encoding="utf-8") as f:
     f.write(template.render(
         blog_posts = posts,
-        navbar=navbars["blog"]
+        navbars = (navbars["blog"], navbars_blog["all"])
     ))
+
+# write blog category pages
+for category in ["website", "games", "fun"]:
+    if category == "games":
+        current_navbars = (navbars["blog"], navbars_blog[category], navbars_games["all"])
+    else:
+        current_navbars = (navbars["blog"], navbars_blog[category])
+    with open("public/blog/"+category+".html","w",encoding="utf-8") as f:
+        f.write(template.render(
+            blog_posts = filter_posts(posts,"category",category),
+            navbars = current_navbars
+        ))
+
+# write blog/games pages
+game_posts = filter_posts(posts,"category","games")
+for game in ["pks","phg","plza","ptcg"]:
+    with open("public/blog/games/"+game+".html","w",encoding="utf-8") as f:
+        f.write(template.render(
+            blog_posts = filter_posts(game_posts,"post-series",game),
+            navbars = (navbars["blog"], navbars_blog["games"], navbars_games[game])
+        ))
 
 # write blog post pages
 template = env.get_template("blog-post.jinja")

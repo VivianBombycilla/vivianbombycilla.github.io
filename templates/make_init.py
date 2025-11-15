@@ -32,5 +32,7 @@ def filter_posts(posts,filter_by,category):
 # Load Jinja environment
 env = j2.Environment(
     loader = j2.FileSystemLoader("templates"),
-    autoescape = j2.select_autoescape()
+    autoescape = j2.select_autoescape(),
+    trim_blocks = True,
+    lstrip_blocks = True
 )
