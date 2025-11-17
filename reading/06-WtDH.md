@@ -1,6 +1,6 @@
 ---
 status: read
-book-id: 6
+id: 6
 year: 2022
 author:
   - Alyson Greaves

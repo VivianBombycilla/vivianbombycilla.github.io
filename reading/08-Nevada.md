@@ -1,6 +1,6 @@
 ---
 status: read
-book-id: 8
+id: 8
 year: 2013
 author:
   - Imogen Binnie

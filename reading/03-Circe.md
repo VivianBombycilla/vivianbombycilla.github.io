@@ -1,6 +1,6 @@
 ---
 status: read
-book-id: 3
+id: 3
 year: 2018
 author:
   - Madeline Miller

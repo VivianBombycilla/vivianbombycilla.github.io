@@ -1,5 +1,5 @@
 ---
-book-id: 9
+id: 9
 status: read
 year: 1953
 author:

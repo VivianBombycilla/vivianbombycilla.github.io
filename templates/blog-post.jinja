@@ -20,17 +20,17 @@
         <div class="prev-post">
             {% if prev_post is not none %}
             <p style="font-weight:bold">Previous</p>
-            <a href={{ prev_post.link }}>Post #{{ prev_post["post-id"] }}</a>
+            <a href={{ prev_post.link }}>Post #{{ prev_post["id"] }}</a>
             {% endif %}
         </div>
         <div class="this-post">
             <p style="font-weight:bold">Current</p>
-            <p>Post #{{ blog_post["post-id"] }}</a>
+            <p>Post #{{ blog_post["id"] }}</a>
         </div>
         <div class="next-post">
             {% if next_post is not none %}
             <p style="font-weight:bold">Next</p>
-            <a href={{ next_post.link }}>Post #{{ next_post["post-id"] }}</a>
+            <a href={{ next_post.link }}>Post #{{ next_post["id"] }}</a>
             {% endif %}
         </div>
     </div>

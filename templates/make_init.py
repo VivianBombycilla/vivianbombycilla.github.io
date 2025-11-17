@@ -1,4 +1,4 @@
-import os
+import os, glob
 import frontmatter
 import markdown
 import jinja2 as j2
@@ -22,6 +22,10 @@ def parse_posts(paths, directory):
     df = df.transpose()
     # Parse markdown in the content of each post.
     df["content"] = df["content"].apply(lambda text: markdown.markdown(text,extensions = ["tables"]))
+    # Declare new index
+    df.index = df["id"]
+    # Sort the DataFrame
+    df.sort_index(axis=0,inplace=True,ascending=False)
     return df
 
 def filter_posts(posts,filter_by,category):

@@ -1,18 +1,14 @@
 from make_navbars import *
 
 # Get list of paths to books
-book_paths = list(filter(lambda path: path.endswith(".md"),os.listdir("reading")))
+book_paths = glob.glob("reading/*.md")
 
 def parse_authors(author_list):
     '''Parses list of authors to a string.'''
     return ", ".join(author_list)
 
 # Parse books into DataFrame
-books_df = parse_posts(book_paths,"reading/")
-# Declare new index
-books_df.index = books_df["book-id"]
-# Sort the DataFrame
-books_df.sort_index(axis=0,inplace=True,ascending=False)
+books_df = parse_posts(book_paths,"")
 
 # Parse author column
 books_df["author"] = books_df["author"].apply(parse_authors)

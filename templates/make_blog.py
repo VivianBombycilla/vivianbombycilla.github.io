@@ -1,21 +1,17 @@
 from make_navbars import *
 
 # Get list of paths to posts
-paths = list(filter(lambda path: path.endswith(".md"),os.listdir("blog")))
+paths = glob.glob("blog/*/*/*.md")
 
 def get_link(post_id):
     '''Gets link to post from post id'''
     return "/blog/posts/"+str(post_id)+".html"
 
 # Parse all blog posts into a DataFrame.
-df = parse_posts(paths,"blog/")
-# Declare new index
-df.index = df["post-id"]
-# Sort the DataFrame
-df.sort_index(axis=0,inplace=True,ascending=False)
+df = parse_posts(paths,"")
 
 # Create links
-df["link"] = df["post-id"].apply(get_link)
+df["link"] = df["id"].apply(get_link)
 
 # Extract a list of posts in the form of Series.
 posts = list(map(lambda x: x[1],df.iterrows()))
