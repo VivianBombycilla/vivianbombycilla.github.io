@@ -58,7 +58,9 @@ img {
 .blog-post-nav {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
     flex-wrap: wrap;
+    height: fit-content;
     .prev-post, .next-post, .this-post {
         display: inline-block;
         p {
@@ -71,12 +73,20 @@ img {
     /* Absolute center */
     .this-post { 
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        width: fit-content;
+        /* transform: translateX(-50%); */
         text-align: center;
     }
     .next-post {
         text-align: right;
+    }
+    .hide {
+        width: 0;
+        overflow: hidden;
+        color: yellow;
     }
 }
 
