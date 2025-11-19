@@ -12,7 +12,6 @@ def find_adjacent_posts(post_id,posts,df):
     ids = list(map(lambda post:post["id"],posts))
     prev_post_id = max(list(filter(lambda x: x < post_id, ids)) or [None])
     next_post_id = min(list(filter(lambda x: x > post_id, ids)) or [None])
-    print(ids,post_id,prev_post_id,next_post_id)
     return find_post(prev_post_id,df),find_post(next_post_id,df)
 
 def find_post(post_id,df):

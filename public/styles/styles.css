@@ -69,6 +69,9 @@ img {
         a {
             color: blue;
         }
+        .blog-post-nav-heading {
+            font-weight: bold;
+        }
     }
     /* Absolute center */
     .this-post { 
