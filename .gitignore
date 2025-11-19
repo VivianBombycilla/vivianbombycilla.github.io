@@ -2,6 +2,13 @@
 .obsidian/
 *.base
 
+# testing
+/public/test.html
+/public/test/*
+/public/styles/test.css
+/public/scripts/test.js
+
+### PYTHON
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
