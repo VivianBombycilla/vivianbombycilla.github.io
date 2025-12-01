@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/34.html>Post #34</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #35</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/26.html>Post #26</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #35</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="hide">hidden</p>
+        <p class="hide">hidden</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #35</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 1: Mission Statement</p>
+        <p class="blog-post-date">2025-11-25</p>
+        <h3>The Goal</h3>
+<p>My goal with this project is to build a tool to easily turn data from a sports league into a nice-looking graphic that I can share with others. </p>
+<p>In most professional sports leagues, each team plays a certain number of games in a season, the results of which determine their position in the final standings. I want to plot the relative performance of each team over the course of the season, to provide an at-a-glance overview of how the season went.</p>
+<p>The <strong>input</strong> can be split into two main components: <strong>data</strong> and <strong>style</strong>. The <strong>data</strong> from the sports league season will be plotted and visualized in the graphic. The <strong>style</strong> will be aesthetic settings otherwise related to the graphic, such as label positioning and major/minor breaks.</p>
+<p>The <strong>output</strong> will be SVG files created by the ElementTree extension in Python. This is something I've been dabbling with for a long time, so I can give you some examples of what I'm going for: See my (as of writing) <a href="https://old.reddit.com/r/nfl/comments/1p0jwux/nfl_graphical_standings_week_11_2025/">most recent post</a> on Reddit.</p>
+<h3>Minimum success criteria</h3>
+<p>Given that I have examples of what I'm going for already, why am I starting a blog, a multi-part blog at that, about developing this tool further? That's because I'm not happy with how the tool exists in its current state. It's a clunky piece of code and it takes an outsize amount of effort to run every week.</p>
+<p>I will consider this project a success if the following criteria are met:
+- The program should take data from a season (possibly in progress) and produce an SVG visualizing the data in the way desired.
+- The program should <strong>not</strong> rely on any external tools, such as Google Sheets, to run easily and efficiently.
+- The program should be able to work without league-specific modifications on each of the NFL, PWHL, and WSL.
+    - The NFL has ties as well as bye weeks, which I want to distinguish from each other (for example by using a <strong>dashed line</strong> for bye weeks).
+    - The PWHL gives points to teams differently based on <strong>whether the game went to overtime or not</strong>.
+    - The WSL has an <strong>asymmetric points system</strong> (as common in soccer leagues): 3 points for a win, 1 for a tie, 0 for a loss.
+- My Python code should be well-documented and easy to maintain.
+    - In particular I will use docstrings and maintain a consistent style throughout.
+    - Maybe I'll use type hinting as well, depending on how nicely this plays with pandas DataFrames and Series with ambiguous detected types within.</p>
+<h3>Bonus</h3>
+<p>There are things I want to be able to do, not right now but in the future, and which will require each of the minimum success criteria to be met before I can start thinking about them.
+- Tiebreaking. When two teams are tied in the standings, which one is on top? For my minimum success I will not specify what order they should be in: Just a consistent one, such as alphabetical.
+- Interactivity. Using JavaScript I can make the graphic change when hovering or clicking certain elements. My (yet minimal) CSS and web development experience should help me with this.</p>
+    </div>
+</body>
+
+</html>

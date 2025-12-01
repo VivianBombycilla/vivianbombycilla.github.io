@@ -1,0 +1,26 @@
+text {
+    font-family: "Merriweather Sans";
+    fill: black;
+    text-anchor: middle;
+}
+
+.background {
+    fill: #ccc;
+}
+
+.panel rect {
+    fill: #ddd;
+}
+.panel text{
+    fill: #bbb
+}
+
+.guide-line {
+    stroke: green;
+    stroke-width: 0.5;
+}
+
+.horizontal-axis-title text {
+    font-size: 6;
+    fill: black;
+}

@@ -26,8 +26,8 @@ body {
     padding: 1em
 }
 
-img {
-    max-width: 100%;
+img, object {
+    width: 100%;
 }
 
 .blog-post-subtitle {
