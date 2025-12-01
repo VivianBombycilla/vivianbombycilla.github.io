@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #37</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/38.html>Post #38</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #37</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="hide">hidden</p>
+        <p class="hide">hidden</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #37</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 00: Getting Started</p>
+        <p class="blog-post-date">2025-12-01</p>
+        <p>Last year was my first year successfully getting all stars in Advent of Code, and I did so in Python. This year I want to do it in C++, which is a language I have essentially zero experience in. Should be fun!</p>
+<h3>Getting Started</h3>
+<p>To begin with, <a href="https://www.learncpp.com/">Learn C++</a> looks like a helpful tool to get started, so I followed the introductory Chapter 0 a while ago to get set up.  I followed <a href="https://code.visualstudio.com/docs/cpp/config-mingw">this tutorial</a> to be able to use the GCC C++ compiler in VS Code, skimmed Chapter 1 (the biggest thing I didn't know was the differences between the different variable initialization styles), and then went straight to <a href="https://www.learncpp.com/cpp-tutorial/basic-file-io/">Chapter 28.6</a> to get started with file I/O (since I'm going to have to read inputs from a file).</p>
+<p>Now, right away, I ran into an issue. When I clicked the button in VS Code to run and debug my program, the output (and input) files were found in the folder containing <code>g++.exe</code>, that is, <code>C:\msys64\ucrt64\bin</code>, instead of my working directory which is where I'd rather they go. So, what's up with that? Figuring this out meant understanding a bit more about how VS Code works, but I figured it out: When I click the "play" button and select <code>g++.exe</code> as my compiler, this compiles my <code>.exe</code> file from my <code>.cpp</code> file, and saves the settings as a task in <code>tasks.json</code>. Then, it also <em>runs</em> this <code>.exe</code> file, but the working directory never gets updated from that one containing <code>g++.exe</code>.</p>
+<p>If I instead click the settings cog first, "Add Debug Configuration", and select <code>g++.exe</code> from there, VS Code creates not only the appropriate <code>tasks.json</code> file, but also <code>launch.json</code>, which contains a configuration for running and debugging the code. Within this configuration, the parameter <code>cwd</code> is set to <code>"C:\\msys64\\ucrt64\\bin"</code>, that is, the folder containing <code>g++.exe</code>, but if I change this instead to <code>${fileDirname}</code> the program will instead run my <code>.exe</code> from the directory of the <code>.exe</code> file itself. Thus, I can use file I/O with relative paths, and the program will behave much more as expected, and the source code will be more portable as well.</p>
+    </div>
+</body>
+
+</html>
