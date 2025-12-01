@@ -82,8 +82,19 @@
         - Tick labels
     - Axis titles (vertical, horizontal)
 The <strong>panel</strong> refers to the area of the image which will contain the plotted area, and it may be viewed in terms of the alternate coordinate system which the graphic inhabits. It would be convenient to be able to write stuff in terms of (x, y) coordinates on the graph, and the panel contains the crucial data required to do the translations.</p>
+<h3>A Skeleton SVG</h3>
 <p>Here is a skeleton SVG showing just those elements which are plotted agnostic to the panel's (x, y) coordinates. Some guide lines are shown in green. </p>
 <object data="/blog/attachments/2025/11-Nov/2025-11-30/skeleton.svg" type="image/svg+xml"></object>
+
+<p>The code for the Python script to build this SVG, as well as the files for the SVG and the accompanying CSS stylesheet can be found in <a href="/blog/attachments/2025/11-Nov/2025-11-30/">this folder</a>. I'm using ElementTree which is a lot of fun, and in particular I'm extending the Element class in order to be able to declare the content of the element upon initialization. The key lines:</p>
+<p>```
+import xml.etree.ElementTree as ET</p>
+<p>class SVGElement(ET.Element):
+    def <strong>init</strong>(self, tag, attrib={}, text=None, <strong>extra):
+        super().<strong>init</strong>(tag, attrib, </strong>extra)
+        self.text = text
+```</p>
+<p>This is my first time extending a class using Python, and I'm very happy with the result! And I'm happy to have gotten the idea to do this in the first place. Now, I'm not sure what a good name for my new class is, <code>SVGElement</code> was the best I could come up with for now, because I wasn't comfortable calling it <code>Element</code>, in case of clashes. I don't know if that's founded or not.</p>
     </div>
 </body>
 
