@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #43</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #43</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #43</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 05: Cafeteria</p>
+        <p class="blog-post-date">2025-12-05</p>
+        <p>Today one of my biggest challenges was parsing the input, since this was the first day in which the input switched from one style to another midway through. I managed to do it with the help of <code>std::istringstream</code>, which I can use to read strings into <code>uint64_t</code> conveniently.</p>
+<h3>Part 1</h3>
+<p>For part 1, parsing the input was pretty much the whole battle. I then just had to write a function to check if a number was in a range, and then run through the input. One new thing I learned today was <code>std::pair</code>, and especially the <code>.first</code> and <code>.second</code> parameters of this class which are easier to use than <code>std::get</code> is on other <code>std::tuple</code> objects.</p>
+<h3>Part 2</h3>
+<p>My algorithm was pretty straightforward today as well: I kept a set of ranges, <code>optimizedRanges</code>, which are already optimized, as well as a vector of ranges <code>freshRanges</code> which I want to add to my set. At each step, I see if the next range, <code>range1</code> in <code>freshRanges</code> intersects any range <code>range2</code> from <code>optimizedRanges</code>. If so, I remove <code>range1</code> from <code>freshRanges</code>, <code>range2</code> from <code>optimizedRanges</code>, merge <code>range1</code> and <code>range2</code> (into, say, <code>range3</code>), and then finally add this new range (<code>range3</code>) back into <code>freshRanges</code>.</p>
+<p>This process can run until <code>freshRanges</code> is empty. Then, we can easily count how many fresh ingredients there are in total.</p>
+<h3>Possible improvements</h3>
+<p>My Part 2 could be faster if we sorted the ranges first, by either largest or smallest fresh ingredient, because then checking whether a range intersects with any in our optimized list would be faster (since we'd actually only have to check one pair of ranges, rather than all of them!). On the other hand, maybe I'm already doing that, since <code>std::set</code> is already sorted. If I am, I should find out! I don't think I am though since <code>freshRanges</code> is just a vector.</p>
+    </div>
+</body>
+
+</html>

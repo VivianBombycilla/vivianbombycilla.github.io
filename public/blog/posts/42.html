@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #42</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #42</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #42</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 04: Printing Department</p>
+        <p class="blog-post-date">2025-12-05</p>
+        <p>I got my wish for a more difficult day! It's the first grid puzzle of the year. There was still room to get away with not doing anything smart, which is convenient because I'm a day behind! I'm definitely gonna come back and do something better.</p>
+<h3>Part 1</h3>
+<p>To begin with, I store the grid in a variable, of type <code>std::vector&lt;std::string&gt;</code>. This is my first time using <code>std::vector</code>, but it's pretty intuitive at a high level, and I've not thought about the implementation too deeply, so to me it looks somewhat like a Python <code>list</code> which must be of one type only.</p>
+<p>The grid is stored as a parameter <code>grid</code> in my own class, <code>RollGrid</code>, which I give a function to set its own parameters <code>rows</code> and <code>cols</code> based on itself. I then define a function <code>isRoll</code> within the class to find if a location (specified by <code>row</code> and <code>col</code>) is a roll (while returning <code>false</code> if the location is out of range). Thus, one last function <code>countAdjacentRolls</code> counts the rolls adjacent to a specified location on the grid.</p>
+<p>Finally, we can loop through the grid, one at a time, to count how many rolls have less than 4 adjacent rolls.</p>
+<h3>Part 2</h3>
+<p>Here's the part for which my solution can be vastly improved. To do this part I basically run Part 1 over and over again: I edited my Part 1 solution to output a <code>std::set</code> of locations, which I can then count, and then use to edit the board (since strings are mutable in C++). Thus I can run this function over and over again to get the Part 2 answer.</p>
+<h3>Possible improvements</h3>
+<p>This solution is very inefficient because I run through the entire board every time, and count every adjacent roll every time as well, both things that can be optimized away. I'll do this another time, because I need to get on with Day 05 and more! If I do come back to this I'll add a note here.</p>
+    </div>
+</body>
+
+</html>

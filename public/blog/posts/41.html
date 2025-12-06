@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/40.html>Post #40</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #41</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/40.html>Post #40</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #41</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/40.html>Post #40</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #41</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/42.html>Post #42</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 03: Lobby</p>
+        <p class="blog-post-date">2025-12-04</p>
+        <p>I'm doing Day 03 a day late cause I had a very long day yesterday... Today looks really quite alright still and I'm wondering if it's gonna get harder sooner rather than later. We've only got 12 days this year, and I'm not sure this day was at the level of a Day 06 question, or even a Day 03 question! Maybe I'm just getting better at these.</p>
+<h3>Part 1</h3>
+<p>Given a bank of batteries we've got to find the largest possible joltage we can get from it. I initially thought of two ways to do this: Since the first battery to turn on is the most significant, a simple way to do this would be to find the biggest possible first battery. then find the biggest possible second battery.</p>
+<p>This felt inefficient to me because I'd be passing over a lot of the same batteries and comparing them twice. So, my second solution was to go through each of the batteries once, compare them to the first battery first and then the second battery second, and update my batteries accordingly. This is what I ended up writing for this part initially.</p>
+<h3>Part 2</h3>
+<p>And I regret it now, because part 2 makes us turn on 12 batteries, and my solution doesn't scale in any of the same ways that the other one I was thinking of does! At least, not without a lot of thought and faff, which I don't even think ends up saving all that much time (in particular it's the same time complexity and it even saves on some space). So, I wrote up that solution and it's actually so much easier! Why didn't I do it that way the first time?</p>
+<p>My source code can be found <a href="https://github.com/VivianBombycilla/aoc2025/tree/main/code">here</a>.</p>
+    </div>
+</body>
+
+</html>

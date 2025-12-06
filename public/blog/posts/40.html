@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/39.html>Post #39</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #40</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/39.html>Post #39</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #40</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/39.html>Post #39</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #40</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/41.html>Post #41</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 02: Gift Shop</p>
+        <p class="blog-post-date">2025-12-02</p>
+        <p>Today's problem was pretty interesting and fun! I had to get to know more C++ types, and came up against the standard library being rather more minimal than that of Python. Coming out the other end, I'm quite excited about having to think about types a lot more, because I feel like it improves my coding. My initial drafts used <code>std::stoi</code>, but I ended up discarding this in favour of working solely with <code>uint64_t</code>. The result is a solution that I wouldn't have felt pressured into writing if I was coding in Python, because manipulating strings and converting between types is so easy.</p>
+<h3>Part 1</h3>
+<p>In order to find invalid IDs between specified <code>uint64_t first</code> and <code>uint64_t last</code> (inclusive), I decided to calculate the least invalid ID which was <code>&gt;= first</code>, and the greatest invalid ID which was <code>&lt;= last</code>. </p>
+<p>To do this, I wrote a function <code>findAdjacentInvalidID</code> taking parameters <code>uint64_t id</code> and <code>bool prev</code> (indicating whether to find <code>&lt;=</code> or <code>&gt;=</code>). This function outputs an integer pre-reduplication.
+- First, check if <code>id</code> has an even number of digits. I implemented this as <code>numDigits</code>.
+- <strong>If so:</strong>
+    - Take the first half of the digits of <code>id</code> and store it in <code>firstHalf</code>, and compute the associated invalid ID <code>firstHalfID</code>.
+    - Comparing <code>firstHalfID</code> with <code>id</code>, and considering <code>prev</code>, then <code>firstHalf</code> may be off by one. Fix it!
+- <strong>If not:</strong>
+    - Then the previous and next invalid ID are easy to come up with, simply being the greatest invalid ID of smaller length, and the least invalid ID of a greater length.</p>
+<p>From there it's easy to find all the invalid IDs between <code>first</code> and <code>last</code>, and all them all up.</p>
+<h3>Part 2</h3>
+<p>With the expanded criteria for invalidity of an ID, my code can thankfully be adjusted by adding another parameter, <code>int times</code>. Then for each pair <code>first</code>, <code>last</code> it suffices to check each value of <code>times</code> and add the invalid IDs found. There's one more complication which is that it's possible an invalid ID gets flagged for multiple values of <code>times</code>. Thus, we store the invalid IDs found on each call of <code>findInvalidIDs</code> in a set, <code>std::set&lt;uint64_t&gt;</code>, so that we do not double-count.</p>
+<p>My source code can be found <a href="https://github.com/VivianBombycilla/aoc2025/tree/main/code">here</a>.</p>
+    </div>
+</body>
+
+</html>
