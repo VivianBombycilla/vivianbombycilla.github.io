@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #44</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #44</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/43.html>Post #43</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: aoc</p>
+        <p>Post #44</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Advent of Code 2025: C++</h2>
+        <p class="blog-post-subtitle" >Day 06: Trash Compactor</p>
+        <p class="blog-post-date">2025-12-06</p>
+        <p>It's the weekend, so today's probably gonna be a step up in difficulty! Indeed, this is another puzzle where basically the whole point is to parse the input, but it's even harder than before...</p>
+<h3>Part 1</h3>
+<p>I've been avoiding having to split a string by a delimiter for a while, but I think it's finally time to write one. my <code>splitBySpaces()</code> function takes a string <code>str</code> and runs <code>std::getline</code> on it to extract the initial substring until a <code>' '</code> space character. Since in the input the numbers are delimited by possibly multiple spaces, and there may be initial or final spaces, I discard this initial substring if it's empty. Thus I get myself a <code>std::vector&lt;std::string&gt;</code> object for each line. From there I can run the calculations fine.</p>
+<p>Something new to me today was thinking about C++ as a compiled language, and trusting the compiler to optimize some stuff for you. In my solution to Part 1, in my logical thinking, I wanted to place the <code>case</code>-<code>match</code> statement (determining if we're adding or multiplying) outside the for loops which run the computations. My girlfriend Trice told me that that didn't matter, for some computer science/compilers reason I don't have the background for, so indeed my <code>case</code>-<code>match</code> statement is inside the for loop and it still runs very quickly.</p>
+<h3>Part 2</h3>
+<p>Oh, this part is evil! The first thing I did was to add a parameter to my <code>ProblemSet</code> class which would hold the raw strings. Next I'm finding the locations along the string of all the operations on the bottom row and storing them in. From this we can figure out the columns in which numbers are stored: My variable <code>part2Problems</code> is a <code>std::vector&lt;std::pair&lt;int, int&gt;&gt;</code>, representing the first and last columns of the problem in question. The symbol for the problem can be found pretty easily from the first column of the problem, and so it's essentially just up to me to implement the algorithms for reading the numbers from the columns.</p>
+<p>Somehow this part went pretty much without a hitch! I'm glad because it's quite complex, but I reckon my habitual modularization has been paying off.</p>
+    </div>
+</body>
+
+</html>
