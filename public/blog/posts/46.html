@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/45.html>Post #45</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #46</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/47.html>Post #47</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/44.html>Post #44</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #46</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/36.html>Post #36</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #46</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 3: More modularization</p>
+        <p class="blog-post-date">2025-12-14</p>
+        <h3>Where we're at right now</h3>
+<p>Right now I've got an outline of how our graphic should look, as well as some foundations of how we're going to make it. I also have a wrapper class, <code>Element</code> (previously called <code>SVGElement</code>), on <code>ET.Element</code> which allows us to more easily create elements with content within them. Finally, I've figured out how to use an external CSS stylesheet within my generated SVG code, which should make styling a lot easier.</p>
+<h3>Defining more classes to help us out</h3>
+<p>Now, and this is part of what's taken so long, I have to make a decision for how to proceed. Should I define a class? I should probably define a few. </p>
+<p>The first class I'm defining is gonna be a wrapper around my <code>Element</code> class defining specifically an SVG element. Each svg element I make should have pretty much all the same attributes, except for possibly the width and the height, so this should simplify things.</p>
+<p>Then, a class to handle creation of our GSTool graphic. I'll call it <code>GSToolGraphic</code>, and I'll let it first essentially create <code>skeleton.svg</code> on itself. I'm also realizing that I'm also gonna have to generate a CSS file as well! Let's leave that for later though.</p>
+<h3>Importing from parent directory</h3>
+<p>Since I want to write testing scripts, but not have them in the root directory, I've had to figure out how to import a python file from a parent directory. Thankfully, GeeksforGeeks has a <a href="https://www.geeksforgeeks.org/python/python-import-from-parent-directory/">tutorial</a> which was easy to follow and understand.</p>
+<h3>Result of today's work</h3>
+<p>So I've created a new file, <code>gstool3svg.py</code>, containing the new classes I've defined. <code>skeleton2.py</code> shows the new process for creating the same skeleton diagram from before: Now, all I have to add is the text element denoting the "Panel", as well as the green guidelines for the titles. Hopefully this will serve as a good foundation on which to build the rest of my tool!</p>
+    </div>
+</body>
+
+</html>
