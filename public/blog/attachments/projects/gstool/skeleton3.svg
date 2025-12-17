@@ -1,0 +1,40 @@
+<svg width="256" height="144" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <g class="background">
+        <rect width="100%" height="100%" />
+    </g>
+    <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="skeleton.css" type="text/css" />
+    <g class="plot-title">
+        <line x1="0%" y1="2" x2="100%" y2="2" class="guide-line" />
+        <line x1="0%" y1="12" x2="100%" y2="12" class="guide-line" />
+        <text x="128" y="12" font-size="10">Plot Title</text>
+    </g>
+    <g class="vertical-axis-title">
+        <line x1="2" y1="0%" x2="2" y2="100%" class="guide-line" />
+        <line x1="8" y1="0%" x2="8" y2="100%" class="guide-line" />
+        <text x="8" y="72" font-size="6" transform="rotate(-90,8,72)">Vertical Axis Title</text>
+    </g>
+    <g class="horizontal-axis-title">
+        <line x1="0%" y1="136" x2="100%" y2="136" class="guide-line" />
+        <line x1="0%" y1="142" x2="100%" y2="142" class="guide-line" />
+        <text x="124" y="142" font-size="6">Horizontal Axis Title</text>
+    </g>
+    <g class="panel">
+        <rect x="20" y="16" width="208" height="112" />
+        <text x="124" y="70" font-size="12">Panel</text>
+        <g class="x-breaks">
+            <line x1="20.0" y1="16" x2="20.0" y2="128" />
+            <line x1="40.8" y1="16" x2="40.8" y2="128" />
+            <line x1="124.0" y1="16" x2="124.0" y2="128" />
+            <line x1="144.8" y1="16" x2="144.8" y2="128" />
+            <line x1="228.0" y1="16" x2="228.0" y2="128" />
+        </g>
+        <g class="y-breaks">
+            <line x1="20" y1="74.8" x2="228" y2="74.8" />
+            <line x1="20" y1="72.0" x2="228" y2="72.0" />
+            <line x1="20" y1="66.4" x2="228" y2="66.4" />
+            <line x1="20" y1="44.0" x2="228" y2="44.0" />
+            <line x1="20" y1="38.4" x2="228" y2="38.4" />
+            <line x1="20" y1="16.0" x2="228" y2="16.0" />
+        </g>
+    </g>
+</svg>

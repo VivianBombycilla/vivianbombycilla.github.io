@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/48.html>Post #48</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #49</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/48.html>Post #48</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #49</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/48.html>Post #48</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #49</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 5: Axis breaks</p>
+        <p class="blog-post-date">2025-12-17</p>
+        <p>I've been working on drawing <strong>axis breaks</strong> using my program. To do this, I will first need:
+- A way to translate from "plot" coordinates to "panel/SVG" coordinates.
+- A way to store the plot limits as well as panel dimensions.</p>
+<p>I've made a <code>Box</code> class, which is a named tuple containing parameters <code>x_lims</code> and <code>y_lims</code> denoting the boundary of a box. I've also added on some computed properties, <code>x_min</code>, <code>x_max</code>, <code>y_min</code>, and <code>y_max</code>: I've used the <code>@property</code> decorator in the class definition which is pretty fun, and something I've not known to do before :) Python's got more depth than I know so far... I do wonder where I can learn more of what I might want to do in Python, and what I might be overlooking in my mind because I instantly filter it as impossible or too much effort. Perhaps a college course, or studiously following a textbook, or maybe just keeping on trying and thinking and iterating on this project!</p>
+<p>Anyways, I built my translation functions: A <code>rescale</code> function which I intend to act similarly to <code>scale</code> in R (and I do wonder if this could go in a personal library of useful functions I find myself rewriting), plus some <code>GSToolGraphic</code> class-specific functions to translate along the x- and y- axes. I do wonder if there's something clever I can do to condense both of these functions I've defined, <code>rescale_plot_to_panel_x</code> and <code>rescale_plot_to_panel_y</code>, to one function which takes a toggle for the axis, similarly to how the <code>axis</code> parameter works in the <code>pandas</code> library. Should I use an enum class, for clarity?</p>
+<p>Finally, I built my functions to draw axis breaks on my skeleton graphic, and it all works as expected! I designed it to ignore breaks outside the plottable area quietly, although maybe it should pass a warning? I think when I used ggplot2 I did make use of the fact that this kind of thing would fail quietly but maybe there's no such need for me now, if I play my cards right and keep everything simple.</p>
+<p>There's just one issue which is that the lines don't join together, although maybe this will be mitigated by adding my own ticks? We'll see...</p>
+<object data="/blog/attachments/projects/gstool/skeleton3.svg" type="image/svg+xml"></object>
+    </div>
+</body>
+
+</html>
