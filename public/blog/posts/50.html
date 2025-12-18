@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/49.html>Post #49</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #50</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/49.html>Post #49</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #50</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/49.html>Post #49</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #50</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 6: Enums and list comprehension</p>
+        <p class="blog-post-date">2025-12-17</p>
+        <p>My incredibly knowledgeable girlfriend has pointed me to some very useful ideas and tools over the years. Two in particular stand out today: <strong>enums</strong> and <strong>list comprehension</strong>.</p>
+<h3>Enums</h3>
+<p>In the last blog post, I was complaining about writing two separate functions, one for the x-axis and one for the y-axis, several times. I thought about condensing these functions, which are indeed quite similar to each other, into single functions, with a parameter denoting the axis, similarly to how <code>pandas</code> does things, although I wasn't thrilled with having a mysterious boolean or integer which I may one day forget the meaning of.</p>
+<p>Therefore, enums! Defining a new enum <code>Axis</code> is easy and makes these new <code>axis</code> parameters I'm adding so much more readable. Finally, the type-checker I'm using, Pylance through the Python extension on VS Code, is perfectly happy with the completeness of my <code>match</code>-<code>case</code> constructions, so indeed they are guaranteed not to fail ever and so we don't get legally partial functions. </p>
+<h3>List comprehension</h3>
+<p>Another wonderful item in our toolbelt is Python list comprehensions! This is something I know about, but I never use, because I never think to use it, when I'm thinking about my algorithms. I think that's my loss, because it's so convenient and much more readable even than my <code>list(map(...))</code> habit.</p>
+<p>There's another benefit to using list comprehensions, which is that there's no need to lambda new functions when they're not obvious: When I had functions <code>rescale_x()</code> and <code>rescale_y()</code>, mapping these functions onto a list was easy as pie, but now with a unified function <code>rescale()</code>, taking an <code>axis</code> parameter, list comprehensions make the code much simpler. Good habits beget good habits!</p>
+    </div>
+</body>
+
+</html>
