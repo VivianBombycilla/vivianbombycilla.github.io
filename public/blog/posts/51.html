@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/50.html>Post #50</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #51</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/50.html>Post #50</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #51</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/50.html>Post #50</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #51</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 7: Adding arbitrary CSS classes to my SVG elements</p>
+        <p class="blog-post-date">2025-12-20</p>
+        <p>One thing missing from my tools so far is adding arbitrary classes (for CSS selecting) to my elements. This is something pretty fundamental so I'm considering now where to put it in my code. Perhaps my <code>Element</code> class?</p>
+<p>Here's how CSS classes in SVG elements work: They're stored in the <code>class</code> attribute, and multiple CSS classes in one element are separated by a single space. What I'm going to want to do is have a way to manipulate the CSS classes in an element. I'm thinking of adding a <code>classes</code> attribute to the <code>Element</code> class, which can be updated and manipulated (using some kind of access functions), and which updates its corresponding XML attribute <code>class</code>.</p>
+<p>So, my first question is, what should the data type of <code>Element.classes</code> be? I think <code>set</code> would be quite appropriate, since all that matters is membership, and the <a href="https://stackoverflow.com/questions/1321692/how-to-specify-the-order-of-css-classes">order of CSS classes within the XML element does not matter</a> (only the order of the class selectors on the stylesheet!). On the other hand, if I use <code>set</code>, then my program becomes non-deterministic: The order in which the classes appear in the XML element may change from time to time. What I'd really like is an ordered set like in C++, but <a href="https://stackoverflow.com/questions/1653970/does-python-have-an-ordered-set/53657523#53657523">that doesn't seem to exist yet</a>.</p>
+<p>I think I'll go with <code>set</code> as my data type. Now, my next question: Can I make it so that whenever <code>self.classes</code> is updated, the program also runs <code>self.set("classes", " ".join(self.classes))</code>? I wonder if the <code>@property</code> decorator is what I'm looking for right now. Is this something I even want?</p>
+<p><a href="https://www.freecodecamp.org/news/python-property-decorator/">This article</a> on freeCodeCamp was very helpful for learning how the <code>@property</code> decorator works.</p>
+<h3>Implementation complications</h3>
+<p>I went all gung-ho and implemented the system for the <code>.classes</code> attribute with the <code>@property</code> decorator, which is actually super fun! </p>
+<pre><code>class Element(ET.Element):
+
+    def __init__(
+        self,
+        tag: str,
+        attrib: dict[str, str] = {},
+        text: str | None = None,
+        classes: set[str] = set(),
+        **extra: str,
+    ) -&gt; None:
+        super().__init__(tag, attrib, **extra)
+        self.text = text
+        self.classes = classes
+        
+    @property
+    def classes(self) -&gt; set[str]:
+        return self._classes
+        
+    @classes.setter
+    def classes(self, new_classes: set[str]) -&gt; None:
+        self._classes = new_classes
+        if self._classes:
+            self.set("class", " ".join(self._classes))
+</code></pre>
+<p>I've just got one issue: What if I don't want to use this attribute in the initialization? What if <code>self.attrib["classes"]</code> is set?</p>
+<p>So indeed, I need to add an extra few lines of code, in between <code>self.text = text</code> and <code>self.classes = classes</code>:</p>
+<pre><code>        # Get classes
+        class_attrib = self.get("class")
+        # If we found any classes, update our current set of classes
+        if class_attrib is not None:
+            classes.update(class_attrib.split(" "))
+</code></pre>
+<p>Thus we can easily add arbitrary classes to our SVG elements. I could also pretty easily write a function to toggle chosen classes on and off. Cool!</p>
+    </div>
+</body>
+
+</html>
