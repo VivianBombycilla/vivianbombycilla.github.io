@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/53.html>Post #53</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #54</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/53.html>Post #53</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #54</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/53.html>Post #53</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #54</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 9: Tick Labels, and when to use CSS vs parameters</p>
+        <p class="blog-post-date">2025-12-25</p>
+        <p>Next up is tick labels, and that should be easy enough, now that I've done ticks. Indeed, I do much of the same stuff as before. On the other hand, there are some interesting complications.</p>
+<p>The first is that with tick labels, not only do I have to specify the locations, but also the text of the label (This will indeed be used: One example is when I made Pokemon Sleep graphics, and had to shorten the vertical axis labels so that 4000 became 4K). So, instead of simply asking for a list of locations, I'll ask for a list of float-str tuples, the first position containing the location, and the second containing the text.</p>
+<p>I debated whether to define a new NamedTuple for this. I might yet do so: It would be beneficial to the readability of the graphic. It may, however, make working with this function more complicated. On the other hand, I could split up the <code>location</code> and <code>text</code> parameters, and check that both lists are the same length: This is what ggplot2 does. </p>
+<h3>When to rely on CSS and when to ask for parameters?</h3>
+<p>Since tick labels are text, which indeed is not one-dimensional as ticks and breaks are, there are some considerations we must take into account. Specifically, the size of the font will have an effect on where we want the font located. Hence, I've decided that the size of the font will be something that must be declared when calling this function. I may also edit the "title" functions to behave similarly, once I can think of a reasonable, dynamic way to place these which are not hard-coded as they are currently. At moments like these I really appreciate the ease of use and generality programs like ggplot2 and Matplotlib give us. No matter! Let's keep rolling.</p>
+<p>There's some other things I want to mention: Stuff like <code>text-anchor: end</code> and <code>dominant-baseline: middle</code>, which may easily be overridden in CSS. How should I proceed? Should I in fact be feeding all of these default style parameters? Without any CSS the whole graphic is a complete unreadable disaster. On the other hand, I really want to limit how many style parameters I'm feeding the graphic. I should indeed just write a default CSS configuration which will serve as a sensible default to work from, and eliminate as many style parameters as is reasonable. <code>font-size</code> is one of these style parameters which will stay, though!</p>
+    </div>
+</body>
+
+</html>
