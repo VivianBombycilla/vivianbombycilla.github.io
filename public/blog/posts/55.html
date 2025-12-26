@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/54.html>Post #54</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #55</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/54.html>Post #54</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #55</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/54.html>Post #54</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #55</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 10: Plotting dots</p>
+        <p class="blog-post-date">2025-12-26</p>
+        <p>Up to now I've pretty much done all of the basic stuff I need for the graph, surrounding the plotted data. Now, it feels like time to actually plot something!</p>
+<p>To begin with I'm going to implement the plotting of dots. I've been reflecting on how I want to do this, and I'm considering defining a separate function taking <code>GSToolGraphic</code> as a parameter, rather than a class function. My <code>GSToolGraphic</code> class has been getting very large and I'm wondering if that's something I should be avoiding. Perhaps I should split this into further classes, for example one called <code>BasicGraphic</code> which contains just what I've defined up to this point.</p>
+<h3>Dots</h3>
+<p>A <code>circle</code> element in SVG is defined essentially by three parameters: <code>cx</code>, <code>cy</code>, and <code>r</code>. The first two control the position of the centre of the circle, while the latter controls the radius. </p>
+<p>It's immediately obvious that I'll want to define the centre of the dot by plot coordinates, not SVG coordinates. It's not obvious, on the other hand, whether I want to define the radius by plot coordinates, versus SVG coordinates. Both have their benefits, and their downsides: Defining radius by SVG coordinates is simpler, is not axis dependent, and gives consistent results between different plots on different data. Defining radius by plot coordinates, however, is beneficial when the same data may appear on multiple plots at different levels of zoom (as is indeed the case for my current project).</p>
+<p>I will implement both, because I think both should be implemented. And in particular, I will want the ability to define the radius by plot coordinates, which is indeed one of the reasons I switched off of R and ggplot2 to code my own Python in the first place.</p>
+<p>Update: I have implemented both :) It was easier than I thought it'd be! Indeed, I had the bright idea of using a <code>Literal</code> type in my type hints, which helps me not create another enum for typing purposes. Also, I've made radius a single parameter for the whole function, since I'm not envisioning myself plotting using varying radius anytime soon. On the other hand, maybe I do want this? Hmm.</p>
+<p>And actually, I'm not planning on using this function for my current Graphical Standings project! But it will certainly come in helpful later.</p>
+    </div>
+</body>
+
+</html>
