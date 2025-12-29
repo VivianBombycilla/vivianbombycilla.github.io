@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/55.html>Post #55</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #56</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/57.html>Post #57</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/55.html>Post #55</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #56</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/55.html>Post #55</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #56</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 11: Plotting polygons</p>
+        <p class="blog-post-date">2025-12-27</p>
+        <p>Now that we have dots, I want to be able to plot arbitrary polygons on the the graphic, with vertices defined according to plot coordinates. This shouldn't actually be too bad!</p>
+<p>Indeed, I managed to code it up and make sure it's working in about 15 minutes. </p>
+<p>I have a few thoughts again about how this all should work. In particular, my CSS class naming convention is a little bit all over the place. My last two CSS classes have been <code>plotted-dots</code> and <code>plotted-polygons</code> which is fair, but then I have <code>x-breaks</code>, <code>x-ticks</code>, <code>y-tick-breaks</code>, and so on. Should I add something in front of these in order to pre-classify them, so it's more obvious what they're talking about? I think so. But what? <code>plot-</code> seems too close to <code>plotted-</code>, but I think it may still be the most appropriate.</p>
+<p>Anyways I want to write this down as well: I think it's a pretty good idea for me to only class-ify the <code>g</code> SVG elements rather than each little <code>circle</code> or <code>polygon</code> I plot, since I'll want to style each of these as a group anyways using the appropriate CSS selector.</p>
+<h3>Rectangles</h3>
+<p>Rectangles are another thing I'm not planning on using for this specific project, but something I may end up using in the future, for example for bar charts or histograms. There are several ways to define a plotted rectangle, as was the case for dots. Even more so for rectangles: Do we want to define the rectangles based on centre and size? Or rather by their corners?</p>
+<h3>Images</h3>
+<p>So maybe it's better to focus on <strong>images</strong>, which I will actually be plotting in this project. I will be plotting these based on centre and size, where size can be with respect to the SVG or plot coordinates, with respect to either the x- or y- axis, and with fixed aspect ratio.</p>
+    </div>
+</body>
+
+</html>
