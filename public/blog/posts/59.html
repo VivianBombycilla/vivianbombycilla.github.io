@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/58.html>Post #58</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #59</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/58.html>Post #58</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #59</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/58.html>Post #58</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #59</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 13: PWHL: API calling, data</p>
+        <p class="blog-post-date">2026-01-01</p>
+        <p>Now that I've done all this work on the plotting library, I think it's time to start working towards using what I've written thus far. I've brought in some code I wrote a while ago to pull from the Professional Women's Hockey League (PWHL)'s <a href="https://github.com/IsabelleLefebvre97/PWHL-Data-Reference">undocumented API</a>, and to parse this data into <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas DataFrames</a>. I'm using the <a href="https://requests.readthedocs.io/en/latest/">requests library</a> to access the API, and I've cordoned off the API calling into its own script, <code>pwhl_api.py</code>.</p>
+<p>In particular I collect two JSONs, which I call <code>schedule.json</code> and <code>teams.json</code>. The <code>schedule.json</code> file contains each game played in the 2025-26 season, and <code>teams.json</code> collects the participating teams.</p>
+<p>With the schedule, I figure out for each game:
+- The two participating teams
+- The points earned by each team towards the league standings</p>
+<p>This is all the data which will be used in the plot, for now.</p>
+    </div>
+</body>
+
+</html>

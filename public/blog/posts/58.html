@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/57.html>Post #57</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #58</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/56.html>Post #56</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #58</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/56.html>Post #56</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #58</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 12</p>
+        <p class="blog-post-date">2025-12-31</p>
+        <p>Hey! It's been a few days since I touched this project. Last time I worked on this, a wrote up a quick function to plot images onto my graph, and that's working smoothly! I think I may take some time to uniformize function behaviour and clean up my code before I proceed any further.</p>
+<p>Let's build a wishlist for my project.</p>
+<ul>
+<li>Plot title and axis titles which are not hard-coded in position but rather are dynamic to the plot and panel.</li>
+<li>Separate classes for tools which will be used in other graphics versus tools which are specific to the Graphical Standings project.</li>
+<li>Deterministic output for the <code>classes</code> property of the <code>Element</code> class.</li>
+</ul>
+<h3>Deterministic output for the <code>Element.classes</code> property</h3>
+<p>I've been thinking (and talking with Trice) about this and I think that it'll be worthwhile for the behaviour of the <code>Element.classes</code> property to be deterministic. To this end I've changed one line of the definition of the setter function, making it sort the set of classes before outputting to the SVG.</p>
+<h3>Removing <code>xlink</code></h3>
+<p>The <code>xlink</code> namespace is no longer needed for <code>xlink:href</code>. Some programs may still appreciate it, but I think I will forgo the namespace declaration until it causes problems. In particular I think Inkscape still wants <code>xlink</code> but linking to external files with <code>href</code> is already out of Inkscape's GUI capabilities, and command-line Inkscape had a weird bug that makes me want to try other options first.</p>
+<h3>Consolidated <code>CSS_CLASSES</code> dictionary</h3>
+<p>I was defining more and more dictionaries to hold the correspondences between the axes and names of CSS classes, so I defined a new one to rule them all. </p>
+<h3>Uniformizing function names</h3>
+<p>Right now I have six functions which return an <code>Element</code> corresponding to a given plot element: <code>axis_break()</code>, <code>axis_tick()</code>, <code>tick_label()</code>, <code>dot_element()</code>, <code>polygon_element()</code>, <code>image_element()</code>. The corresponding functions to place them on the graphic are: <code>add_axis_breaks()</code>, <code>add_axis_ticks()</code>, <code>add_tick_labels()</code>, <code>plot_dots()</code>, <code>plot_polygons()</code>, <code>plot_image()</code>.</p>
+<p>These are a little bit all over the place. I will rename the functions returning an <code>Element</code> to: <code>get_break_el()</code>, <code>get_tick_el()</code>, <code>get_tick_label_el()</code>, <code>get_dot_el()</code>, <code>get_polygon_el()</code>, <code>get_image_el()</code>.</p>
+<p>The functions to add or plot these elements are a bit less straightforward to my mind to name: I think I will go with: <code>add_breaks()</code>, <code>add_ticks()</code>, <code>add_tick_labels()</code>, <code>add_dots()</code>, <code>add_polygons()</code>, and <code>add_images()</code>.</p>
+<h3>Uniformizing function behaviour: When does the computation occur?</h3>
+<p>Out of the six <code>get_[thing]_el()</code> functions named above, some of them take data in terms of SVG coordinates, and some take data in terms of plot coordinates. That should be uniformized.</p>
+<p>Indeed, when I call the <code>add_[thing]()</code> functions, coordinates are specified in terms of the plot (at least, for these six functions). I think what I will do is I will modify the <code>get_[thing]_el()</code> functions to take plot coordinates and indeed to do the translation computations by itself. That should make the class simpler overall.</p>
+    </div>
+</body>
+
+</html>
