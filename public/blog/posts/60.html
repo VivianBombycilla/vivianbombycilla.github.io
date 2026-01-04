@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #60</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/61.html>Post #61</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #60</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/61.html>Post #61</a>
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/59.html>Post #59</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #60</a>
+    </div>
+    <div class="next-post">
+        <p class="blog-post-nav-heading">Next</p>
+        <a href=/blog/posts/61.html>Post #61</a>
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 14: Plotting PWHL data</p>
+        <p class="blog-post-date">2026-01-02</p>
+        <p>So! We now have all we need to create a basic graphic for the PWHL. I thought that basically I should pretty much code what we need to do in order to create this graphic, and then bring them into a new file. </p>
+<p>Here's a list of what the program will have to do:
+- Add links to stylesheets (and perhaps create them?)
+- Add titles to the plot and both axes
+- Plot the appropriate breaks, ticks, and tick labels
+- Plot the appropriate dots (to become "pills")
+- Plot the appropriate segments (with the relevant CSS classes)
+- Plot the appropriate images next to the plotted lines</p>
+<p>Let's get started.</p>
+<h3>Breaks, ticks, tick labels</h3>
+<p>I'm gonna want to create axis breaks, ticks, and tick labels more easily. Right now, I'm requiring a full list of breaks. which is more convenient and technically more general, but I've thought of a way to make the experience more useable from a practical point of view.</p>
+<p>I'm writing a function, <code>add_regular_breaks()</code>, to a new class, <code>GSToolGraphic</code>, which will draw breaks along each of the axes at regular intervals, with a guaranteed break at 0.</p>
+<p>To find the maximal value at which to break, given an interval <code>n</code> and a maximal plotted value of <code>x_max</code>, I need to find the largest multiple of <code>n</code> which is less than or equal to <code>x_max</code>. Similarly, I will need to find the minimal multiple of <code>n</code> which is greater than or equal to a minimal plotted value <code>x_min</code>.</p>
+<p>To answer to the first problem is <code>x_max - (x_max % n)</code>, while the answer to the second is <code>x_min + (-x_min % n)</code>. This ended up working out okay! I also added a CSS property to my stylesheet: <code>stroke-linecap: square</code>, for the axes. This lines everything up more nicely.</p>
+    </div>
+</body>
+
+</html>

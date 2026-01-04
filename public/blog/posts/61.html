@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="/styles/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1 id="page-title">Blog Post</h1>
+    <nav>
+    <ul class="nav-menu">
+        <li  >
+            <a href=/>
+                Home
+            </a>
+        </li>
+        <li class="current-page" >
+            <a href=/blog.html>
+                Blog
+            </a>
+        </li>
+        <li  >
+            <a href=/reading.html>
+                Reading
+            </a>
+        </li>
+    </ul>
+</nav>
+    <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/60.html>Post #60</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Current</p>
+        <p>Post #61</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/60.html>Post #60</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Category: fun</p>
+        <p>Post #61</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+        <div class="blog-post-nav">
+    <div class="prev-post">
+        <p class="blog-post-nav-heading">Previous</p>
+        <a href=/blog/posts/60.html>Post #60</a>
+    </div>
+    <div class="this-post">
+        <p class="blog-post-nav-heading">Series: gstool</p>
+        <p>Post #61</a>
+    </div>
+    <div class="next-post">
+    </div>
+</div>
+        <hr>
+    <div class="blog-post">
+        <h2 class="blog-post-title">Developing a Graphical Standings Tool</h2>
+        <p class="blog-post-subtitle" >Part 15: Plotting PWHL data (2)</p>
+        <p class="blog-post-date">2025-01-04</p>
+        <p>First things first, I want to reduce redundancy. I've written a new function, <code>get_regular_values()</code>, to obtain regular values on the axes. Hence, the <code>add_regular_[breaks/ticks/tick_labels]()</code> functions get much simpler.</p>
+<h3>Plotting the results of a season</h3>
+<p>A common object we'll be working with is a pair of values <code>(game, points)</code>, which I've made a <code>NamedTuple</code> called <code>SeasonCoordinate</code>.</p>
+<p>Here's the steps to the process I've created, in order to plot the results of a season:
+1. From the <code>DataFrame</code> containing the season schedule, create dictionaries:
+    - <code>dots_dict</code> relating <code>SeasonCoordinate</code> values to a set of teams (which will have been at this coordinate at some point during the season)
+    - <code>segments_dict</code> relating pairs <code>(SeasonCoordinate, SeasonCoordinate)</code> to a set of teams (which will have gotten this specific result at this specific game)
+    - <code>curr_coords_dict</code> relating teams to <code>SeasonCoordinate</code> values (indicating the current coordinate of each team)
+2. From these dictionaries, with the help of a translation function from <code>SeasonCoordinate</code> to the plot coordinates, plot the dots, segments, and labels.
+    - The dots to plot are simply the keys of the dictionary <code>dots_dict</code>.
+    - The segments to plot can be found from the dictionary <code>segments_dict</code>, but an extra bit of translation work will be necessary here, in order to separate overlapping segments. It will also be wise to group the segments by team, before they are plotted together.
+    - The labels to plot are obvious: Just one for each team. However, in order to avoid overlaps, some more translation work will be needed to separate the labels.</p>
+<h3>Plotting segments</h3>
+<p>The was I made the dictionary <code>segments_dict</code> really facilitates the process of separating multiple overlapping segments. Indeed, to find out how many segments are overlapping, all we have to do is find the length of the list of teams which inhabit the segment.</p>
+<p>Then, we can iterate through this list of teams, creating its polygon <code>Element</code> object based on this information. There are a few considerations here, such as: How thick should the group of segments be?, and: How large should the space between multiple teams' overlapping segments be? My aesthetic preferences lead me to the correct answer to the second question being 4, while the first question should depend on the density of values. Such properties should be editable, though, and indeed are a prime target for keyword-only parameters.</p>
+<h3>Plotting labels</h3>
+<p>The way the <code>curr_coords_dict</code> dictionary is created doesn't lend itself to finding overlaps. It's relatively simple, though, to make a new dictionary in a similar style to that of <code>segments_dict</code>.</p>
+<p>To plot the labels with offsets, I edited the functions to get and add an image to the plot. This is a very convenient place to put this functionality, since I'm already calculating the SVG dimensions and position of the image, so it's just a very simple calculation away.</p>
+<p>Finally, I wrote up a quick and dirty algorithm to offset the labels as I plot them, which works well enough for the PWHL, but won't be appropriate for leagues with more teams, such as the NFL.</p>
+<p>I'm quite happy with the result so far!</p>
+<p><img alt="PWHL Graphical Standings 2026-01-04" src="/blog/attachments/2026/01-Jan/2026-01-04_GSTool.png" /></p>
+    </div>
+</body>
+
+</html>
